@@ -26,7 +26,9 @@ export function Header() {
       <div className="bg-red-700 text-white text-center py-2 animate-marquee overflow-hidden whitespace-nowrap">
         Summer Sale: 20% Off All Exterior Painting Services - Book Now!
       </div>
-      <header className={cn("bg-white py-3 shadow-md slide-in-bottom sticky top-0 z-50")}>
+      <header className={cn(
+        "bg-white py-3 shadow-md slide-in-bottom sticky top-0 z-50"
+      )}>
         <div className="container mx-auto flex items-center justify-between px-4" style={{gap: 'calc(4px/16)'}}>
           <Link href="/" className="flex items-center space-x-2">
             <Image
@@ -83,7 +85,7 @@ export function Header() {
                   <Link href="/" className="w-full text-black hover:text-primary">Another Link</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Link href="/" className="w-full text-black hover:text-primary">Another Link</DropdownMenuItem>
+                  <Link href="/" className="w-full text-black hover:text-primary">Another Link</Link></DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </nav>
