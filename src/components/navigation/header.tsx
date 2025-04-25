@@ -63,6 +63,9 @@ export function Header() {
             <Link href="/contact" className="hover:text-primary transition-colors font-bold text-black">
               Contact
             </Link>
+            <Link href="/blog/painting-tips" className="hover:text-primary transition-colors font-bold text-black">
+              Painting Tips
+            </Link>
             {isLoggedIn ? (
               userRole === "client" ? (
                 <Link href="/client" className="hover:text-primary transition-colors font-bold text-black">
@@ -85,4 +88,3 @@ export function Header() {
     </>
   );
 }
-
