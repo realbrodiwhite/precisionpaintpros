@@ -14,6 +14,7 @@ import {
 
 import logo from "@/assets/PrecisionPaintProsLogo.png"; // Ensure this path is correct
 import {cn} from "@/lib/utils";
+import { ChevronDown } from 'lucide-react';
 
 export function Header() {
   const { isLoggedIn, userRole } = useAuth();
@@ -31,10 +32,11 @@ export function Header() {
             />
             <span className="text-xl font-bold text-primary sr-only">Precision Paint Pros</span>
           </Link>
-          <nav className="flex items-center space-x-6">
+          <nav className="flex items-center">
             <DropdownMenu>
-              <DropdownMenuTrigger className="hover:text-primary transition-colors font-bold text-black">
+              <DropdownMenuTrigger className="group flex items-center hover:text-primary transition-colors font-bold text-black px-4 py-2 rounded-md header-menu-link">
                 Services
+                <ChevronDown className="ml-1 h-4 w-4 transition-transform transform group-hover:rotate-180" />
               </DropdownMenuTrigger>
               <DropdownMenuContent>
                 <DropdownMenuItem>
@@ -57,27 +59,27 @@ export function Header() {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-            <Link href="/about" className="hover:text-primary transition-colors font-bold text-black">
+            <Link href="/about" className="hover:text-primary transition-colors font-bold text-black px-4 py-2 rounded-md header-menu-link">
               About
             </Link>
-            <Link href="/contact" className="hover:text-primary transition-colors font-bold text-black">
+            <Link href="/contact" className="hover:text-primary transition-colors font-bold text-black px-4 py-2 rounded-md header-menu-link">
               Contact
             </Link>
-            <Link href="/blog/painting-tips" className="hover:text-primary transition-colors font-bold text-black">
+            <Link href="/blog/painting-tips" className="hover:text-primary transition-colors font-bold text-black px-4 py-2 rounded-md header-menu-link">
               Painting Tips
             </Link>
             {isLoggedIn ? (
               userRole === "client" ? (
-                <Link href="/client" className="hover:text-primary transition-colors font-bold text-black">
+                <Link href="/client" className="hover:text-primary transition-colors font-bold text-black px-4 py-2 rounded-md header-menu-link">
                   Client Portal
                 </Link>
               ) : (
-                <Link href="/employee" className="hover:text-primary transition-colors font-bold text-black">
+                <Link href="/employee" className="hover:text-primary transition-colors font-bold text-black px-4 py-2 rounded-md header-menu-link">
                   Employee Portal
                 </Link>
               )
             ) : (
-              <Link href="/client" className="hover:text-primary transition-colors font-bold text-black">
+              <Link href="/client" className="hover:text-primary transition-colors font-bold text-black px-4 py-2 rounded-md header-menu-link">
                 Dashboard
               </Link>
             )}
