@@ -8,19 +8,19 @@ body {
 
 @layer base {
   :root {
-    --background: 233 44% 98%; /* Light background */
+    --background: 0 0% 100%; /* White background */
     --foreground: 220 25% 10%; /* Dark foreground */
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 31 92% 59%; /* Vibrant orange */
+    --primary: 242 80% 78%; /* Light Blue */
     --primary-foreground: 0 0% 98%;
-    --secondary: 23 56% 94%; /* muted orange */
+    --secondary: 220 14% 96%; /* Light Gray */
     --secondary-foreground: 240 5.9% 10%;
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 5.3% 46.1%;
-    --accent: 37 93% 75%; /* Vibrant Yellow */
+    --accent: 0 100% 50%; /* Bright Red */
     --accent-foreground: 0 0% 98%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -44,13 +44,13 @@ body {
     --card-foreground: 0 0% 98%;
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 31 92% 59%; /* Vibrant purple */
+    --primary: 242 80% 78%; /* Light Blue */
     --primary-foreground: 240 10% 3.9%;
-    --secondary: 23 56% 94%; /* Darker green */
+    --secondary: 220 14% 96%; /* Light Gray */
     --secondary-foreground: 0 0% 98%;
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;
-    --accent: 37 93% 75%; /* Vibrant Yellow */
+    --accent: 0 100% 50%; /* Bright Red */
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
@@ -142,4 +142,5 @@ body {
     opacity: 1;
   }
 }
+
 

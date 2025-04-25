@@ -22,12 +22,12 @@ export function Header() {
             <Image
               src={logo}
               alt="Precision Paint Pros Logo"
-              width={130}
-              height={45}
+              width={90}
+              height={30}
             />
             <span className="text-xl font-bold text-primary sr-only">Precision Paint Pros</span>
           </Link>
-          <nav className="flex items-center space-x-4">
+          <nav className="flex items-center space-x-2">
              <Link href="/services" className="hover:text-primary transition-colors font-bold">
               Services
             </Link>
@@ -62,5 +62,6 @@ export function Header() {
     </>
   );
 }
+
 
 
