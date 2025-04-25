@@ -13,48 +13,47 @@ export function Header() {
 
   return (
     <>
-      <header className="bg-white py-1 shadow-md slide-in-bottom">
-        <div className="container mx-auto flex items-center justify-between px-1" style={{gap: 'calc(4px/4)'}}>
+      <header className="bg-white py-2 shadow-md slide-in-bottom">
+        <div className="container mx-auto flex items-center justify-between px-1" style={{gap: 'calc(4px/16)'}}>
           <Link href="/" className="flex items-center space-x-2">
             <Image
               src={logo}
               alt="Precision Paint Pros Logo"
-              width={216}
-              height={75}
+              width={270}
+              height={94}
             />
             <span className="text-xl font-bold text-primary sr-only">Precision Paint Pros</span>
           </Link>
           <nav className="flex items-center space-x-2">
-            <Link href="/blog/painting-tips" className="hover:text-accent transition-colors">
+            <Link href="/blog/painting-tips" className="hover:text-primary transition-colors">
               Painting Tips
             </Link>
-            <Link href="/about" className="hover:text-accent transition-colors">
+            <Link href="/about" className="hover:text-primary transition-colors">
               About
             </Link>
-            <Link href="/contact" className="hover:text-accent transition-colors">
+            <Link href="/contact" className="hover:text-primary transition-colors">
               Contact
             </Link>
             {isLoggedIn ? (
               userRole === "client" ? (
-                <Link href="/client" className="hover:text-accent transition-colors">
+                <Link href="/client" className="hover:text-primary transition-colors">
                   Client Portal
                 </Link>
               ) : (
-                <Link href="/employee" className="hover:text-accent transition-colors">
+                <Link href="/employee" className="hover:text-primary transition-colors">
                   Employee Portal
                 </Link>
               )
             ) : (
-              <Link href="/client" className="hover:text-accent transition-colors">
+              <Link href="/client" className="hover:text-primary transition-colors">
                 Dashboard
               </Link>
             )}
-            <Button variant="outline" className="hover:bg-accent hover:text-accent-foreground transition-colors">Request an Estimate</Button>
+            <Button variant="outline" className="hover:bg-primary hover:text-primary-foreground transition-colors">Request an Estimate</Button>
           </nav>
         </div>
       </header>
     </>
   );
 }
-
 
