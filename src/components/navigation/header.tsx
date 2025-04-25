@@ -4,25 +4,25 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useAuth } from "@/hooks/use-auth";
 import Image from "next/image";
-import logo from "@/assets/PrecisionPaintProsLogo.png";
+import logo from "@/assets/precision_paint_pros_logo.png";
 
 export function SiteHeader() {
   const { isLoggedIn, userRole } = useAuth();
 
   return (
-    <header className="bg-white py-6 shadow-md slide-in-bottom">
+    <header className="bg-white py-0.5 shadow-md slide-in-bottom">
       <div className="container mx-auto flex items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2">
+        <Link href="/" className="flex items-center space-x-0.5">
           <Image
             src={logo}
             alt="Precision Paint Pros Logo"
-            width={50}
-            height={50}
+            width={100}
+            height={100}
             className="rounded-full"
           />
-          <span className="text-2xl font-bold text-primary sr-only">Precision Paint Pros</span>
+          <span className="text-3xl font-bold text-primary sr-only">Precision Paint Pros</span>
         </Link>
-        <nav className="flex items-center space-x-6">
+        <nav className="flex items-center space-x-0.25">
           <Link href="/" className="hover:text-accent transition-colors">
             Home
           </Link>
@@ -55,5 +55,6 @@ export function SiteHeader() {
     </header>
   );
 }
+
 
 
