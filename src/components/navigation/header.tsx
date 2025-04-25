@@ -8,6 +8,7 @@ import React from "react";
 
 import logo from "@/assets/precision_paint_pros_logo.png"; // Ensure this path is correct
 
+
 export function SiteHeader() {
   const { isLoggedIn, userRole } = useAuth();
 
@@ -19,8 +20,8 @@ export function SiteHeader() {
             <Image
               src={logo}
               alt="Precision Paint Pros Logo"
-              width={270}
-              height={94}
+              width={460}
+              height={154}
               priority
             />
             <span className="text-xl font-bold text-primary sr-only">Precision Paint Pros</span>
@@ -51,3 +52,5 @@ export function SiteHeader() {
     </>
   );
 }
+
+
