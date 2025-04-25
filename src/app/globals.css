@@ -8,20 +8,20 @@ body {
 
 @layer base {
   :root {
-    --background: 0 0% 100%; /* White background */
-    --foreground: 220 25% 10%; /* Dark foreground */
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --background: 255 255 255; /* White background */
+    --foreground: 35 38 44; /* Dark foreground */
+    --card: 255 255 255;
+    --card-foreground: 260 9% 15%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 242 80% 78%; /* Light Blue */
-    --primary-foreground: 0 0% 98%;
+    --popover-foreground: 260 9% 15%;
+    --primary: 221 73% 58%; /* Light Blue */
+    --primary-foreground: 0 0% 100%;
     --secondary: 220 14% 96%; /* Light Gray */
-    --secondary-foreground: 240 5.9% 10%;
+    --secondary-foreground: 260 9% 15%;
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 5.3% 46.1%;
-    --accent: 0 100% 50%; /* Bright Red */
-    --accent-foreground: 0 0% 98%;
+    --accent: 39 97% 59%; /* Bright Red */
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 240 5.9% 88%;
@@ -38,22 +38,22 @@ body {
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
   .dark {
-    --background: 232 21% 17%; /* Dark background */
-    --foreground: 233 44% 98%; /* Light foreground */
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 242 80% 78%; /* Light Blue */
-    --primary-foreground: 240 10% 3.9%;
-    --secondary: 220 14% 96%; /* Light Gray */
-    --secondary-foreground: 0 0% 98%;
+    --background: 35 38 44; /* Dark background */
+    --foreground: 247 25% 99%; /* Light foreground */
+    --card: 35 38 44;
+    --card-foreground: 247 25% 99%;
+    --popover: 35 38 44;
+    --popover-foreground: 247 25% 99%;
+    --primary: 221 73% 58%; /* Light Blue */
+    --primary-foreground: 35 38 44;
+    --secondary: 240 10% 3.9%; /* Light Gray */
+    --secondary-foreground: 247 25% 99%;
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;
-    --accent: 0 100% 50%; /* Bright Red */
-    --accent-foreground: 0 0% 98%;
+    --accent: 39 97% 59%; /* Bright Red */
+    --accent-foreground: 247 25% 99%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 247 25% 99%;
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 224 71% 56%;
@@ -143,4 +143,15 @@ body {
   }
 }
 
+/* Section-specific backgrounds */
+.bg-primary-section {
+  background-color: hsl(var(--primary) / 0.1); /* Light blue tint */
+}
 
+.bg-secondary-section {
+  background-color: hsl(var(--secondary) / 0.1); /* Light gray tint */
+}
+
+.bg-accent-section {
+  background-color: hsl(var(--accent) / 0.1); /* Light red tint */
+}

@@ -12,29 +12,33 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-// import { GeistSans } from 'geist/font';
+import { GeistSans } from 'next/font/google';
 
 import logo from "@/assets/PrecisionPaintProsLogo.png"; // Ensure this path is correct
 
+const dmSans = GeistSans({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+});
 
 export function Header() {
   const { isLoggedIn, userRole } = useAuth();
 
   return (
     <>
-      <header className="bg-white py-1 shadow-md slide-in-bottom">
+      <header className="bg-white py-3 shadow-md slide-in-bottom">
         <div className="container mx-auto flex items-center justify-between px-4" style={{gap: 'calc(4px/16)'}}>
           <Link href="/" className="flex items-center space-x-2">
             <Image
               src={logo}
               alt="Precision Paint Pros Logo"
-              width={120}
-              height={40}
+              width={128}
+              height={43}
             />
             <span className="text-xl font-bold text-primary sr-only">Precision Paint Pros</span>
           </Link>
-          <nav className="flex items-center space-x-4">
-             <DropdownMenu>
+          <nav className="flex items-center space-x-6">
+            <DropdownMenu>
               <DropdownMenuTrigger className="hover:text-primary transition-colors font-bold">
                 Services
               </DropdownMenuTrigger>
@@ -83,14 +87,11 @@ export function Header() {
                 Dashboard
               </Link>
             )}
-            <Button variant="outline" className="font-bold hover:bg-primary hover:text-primary-foreground transition-colors">Request an Estimate</Button>
+            <Button variant="default" className="font-bold hover:bg-secondary hover:text-secondary-foreground transition-colors">Request an Estimate</Button>
           </nav>
         </div>
       </header>
     </>
   );
 }
-
-
-
 
