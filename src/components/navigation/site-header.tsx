@@ -14,7 +14,7 @@ export function SiteHeader() {
             Home
           </Link>
           <Link href="/blog" className="hover:text-blue-500">
-            Blog
+            Painting Blogs
           </Link>
           <Link href="/client" className="hover:text-blue-500">
             Client Panel
@@ -28,3 +28,4 @@ export function SiteHeader() {
     </header>
   );
 }
+
