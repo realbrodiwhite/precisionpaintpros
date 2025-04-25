@@ -34,8 +34,8 @@ export function Header() {
             <Image
               src={PrecisionPaintProsLogo}
               alt="Precision Paint Pros Logo"
-              width={128*0.66*1.3*0.66}
-              height={43*0.66*1.3*0.66}
+              width={128*0.66*1.3*0.66*3}
+              height={43*0.66*1.3*0.66*3}
             />
             <span className="text-xl font-bold text-primary sr-only">Precision Paint Pros</span>
           </Link>
@@ -166,4 +166,5 @@ export function Header() {
     </>
   );
 }
+
 
