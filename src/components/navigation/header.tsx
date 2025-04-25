@@ -16,8 +16,8 @@ export function SiteHeader() {
           <Image
             src={logo}
             alt="Precision Paint Pros Logo"
-            width={140}
-            height={140}
+            width={100}
+            height={100}
             style={{borderRadius: '50%'}}
           />
           <span className="text-3xl font-bold text-primary sr-only">Precision Paint Pros</span>
