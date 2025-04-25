@@ -13,21 +13,21 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 import logo from "@/assets/PrecisionPaintProsLogo.png"; // Ensure this path is correct
-
+import {cn} from "@/lib/utils";
 
 export function Header() {
   const { isLoggedIn, userRole } = useAuth();
 
   return (
     <>
-      <header className="bg-white py-3 shadow-md slide-in-bottom">
+      <header className={cn("bg-secondary py-3 shadow-md slide-in-bottom sticky top-0 z-50")}>
         <div className="container mx-auto flex items-center justify-between px-4" style={{gap: 'calc(4px/16)'}}>
           <Link href="/" className="flex items-center space-x-2">
             <Image
               src={logo}
               alt="Precision Paint Pros Logo"
-              width={128*1.3}
-              height={43*1.3}
+              width={128*0.66*1.3}
+              height={43*0.66*1.3}
             />
             <span className="text-xl font-bold text-primary sr-only">Precision Paint Pros</span>
           </Link>
@@ -85,6 +85,3 @@ export function Header() {
     </>
   );
 }
-
-
-
