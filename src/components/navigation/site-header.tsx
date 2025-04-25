@@ -3,46 +3,57 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useAuth } from "@/hooks/use-auth";
+import Image from "next/image";
+
+import logo from '../../../public/precision_paint_pros_logo.png';
 
 export function SiteHeader() {
   const { isLoggedIn, userRole } = useAuth();
 
   return (
-    <header className="bg-white py-4 shadow-md">
+    <header className="bg-white py-6 shadow-md slide-in-bottom">
       <div className="container mx-auto flex items-center justify-between">
-        <Link href="/" className="text-2xl font-bold">
-          Precision Paint Pros
+        <Link href="/" className="flex items-center space-x-2">
+          <Image
+            src={logo}
+            alt="Precision Paint Pros Logo"
+            width={50}
+            height={50}
+            className="rounded-full"
+          />
+          <span className="text-2xl font-bold text-primary">Precision Paint Pros</span>
         </Link>
-        <nav className="flex items-center space-x-4">
-          <Link href="/" className="hover:text-blue-500">
+        <nav className="flex items-center space-x-6">
+          <Link href="/" className="hover:text-accent transition-colors">
             Home
           </Link>
-          <Link href="/blog" className="hover:text-blue-500">
+          <Link href="/blog" className="hover:text-accent transition-colors">
             Painting Blogs
           </Link>
           {isLoggedIn ? (
             userRole === "client" ? (
-              <Link href="/client" className="hover:text-blue-500">
+              <Link href="/client" className="hover:text-accent transition-colors">
                 Client Portal
               </Link>
             ) : (
-              <Link href="/employee" className="hover:text-blue-500">
+              <Link href="/employee" className="hover:text-accent transition-colors">
                 Employee Portal
               </Link>
             )
           ) : (
             <>
-              <Link href="/client" className="hover:text-blue-500">
+              <Link href="/client" className="hover:text-accent transition-colors">
                 Client Dashboard
               </Link>
-              <Link href="/employee" className="hover:text-blue-500">
+              <Link href="/employee" className="hover:text-accent transition-colors">
                 Employee Dashboard
               </Link>
             </>
           )}
-          <Button variant="outline">Contact Us</Button>
+          <Button variant="outline" className="hover:bg-accent hover:text-accent-foreground transition-colors">Contact Us</Button>
         </nav>
       </div>
     </header>
   );
 }
+
