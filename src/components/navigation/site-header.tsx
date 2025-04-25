@@ -1,8 +1,12 @@
+"use client";
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useAuth } from "@/hooks/use-auth";
 
 export function SiteHeader() {
+  const { isLoggedIn, userRole } = useAuth();
+
   return (
     <header className="bg-white py-4 shadow-md">
       <div className="container mx-auto flex items-center justify-between">
@@ -16,16 +20,29 @@ export function SiteHeader() {
           <Link href="/blog" className="hover:text-blue-500">
             Painting Blogs
           </Link>
-          <Link href="/client" className="hover:text-blue-500">
-            Client Panel
-          </Link>
-          <Link href="/employee" className="hover:text-blue-500">
-            Employee Panel
-          </Link>
+          {isLoggedIn ? (
+            userRole === "client" ? (
+              <Link href="/client" className="hover:text-blue-500">
+                Client Portal
+              </Link>
+            ) : (
+              <Link href="/employee" className="hover:text-blue-500">
+                Employee Portal
+              </Link>
+            )
+          ) : (
+            <>
+              <Link href="/client" className="hover:text-blue-500">
+                Client Dashboard
+              </Link>
+              <Link href="/employee" className="hover:text-blue-500">
+                Employee Dashboard
+              </Link>
+            </>
+          )}
           <Button variant="outline">Contact Us</Button>
         </nav>
       </div>
     </header>
   );
 }
-
