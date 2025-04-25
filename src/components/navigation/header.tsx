@@ -5,6 +5,12 @@ import Link from "next/link";
 import { useAuth } from "@/hooks/use-auth";
 import Image from "next/image";
 import React from "react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 // import { GeistSans } from 'geist/font';
 
@@ -22,15 +28,37 @@ export function Header() {
             <Image
               src={logo}
               alt="Precision Paint Pros Logo"
-              width={90}
-              height={30}
+              width={120}
+              height={40}
             />
             <span className="text-xl font-bold text-primary sr-only">Precision Paint Pros</span>
           </Link>
-          <nav className="flex items-center space-x-2">
-             <Link href="/services" className="hover:text-primary transition-colors font-bold">
-              Services
-            </Link>
+          <nav className="flex items-center space-x-4">
+             <DropdownMenu>
+              <DropdownMenuTrigger className="hover:text-primary transition-colors font-bold">
+                Services
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem>
+                  <Link href="/services/interior-painting" className="w-full">Interior Painting</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href="/services/exterior-painting" className="w-full">Exterior Painting</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href="/services/commercial-painting" className="w-full">Commercial Painting</Link>
+                </DropdownMenuItem>
+                 <DropdownMenuItem>
+                  <Link href="/services/residential-painting" className="w-full">Residential Painting</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href="/services/color-consultation" className="w-full">Color Consultation</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href="/services" className="w-full">All Services</Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <Link href="/painting-tips" className="hover:text-primary transition-colors font-bold">
               Painting Tips
             </Link>
@@ -62,6 +90,7 @@ export function Header() {
     </>
   );
 }
+
 
 
 
