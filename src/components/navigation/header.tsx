@@ -37,7 +37,7 @@ export function Header() {
             />
             <span className="text-xl font-bold text-primary sr-only">Precision Paint Pros</span>
           </Link>
-          <nav className="flex items-center">
+          <nav className="flex items-center justify-center">
             <DropdownMenu>
               <DropdownMenuTrigger className="group flex items-center hover:text-primary transition-colors font-bold text-black px-4 py-2 rounded-md header-menu-link">
                 Services
@@ -73,6 +73,19 @@ export function Header() {
             <Link href="/blog/painting-tips" className="hover:text-primary transition-colors font-bold text-black px-4 py-2 rounded-md header-menu-link">
               Painting Tips
             </Link>
+             <DropdownMenu>
+              <DropdownMenuTrigger className="group flex items-center hover:text-primary transition-colors font-bold text-black px-4 py-2 rounded-md header-menu-link">
+                More
+                <ChevronDown className="ml-1 h-4 w-4 transition-transform transform group-hover:rotate-180" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem>
+                  <Link href="/" className="w-full text-black hover:text-primary">Another Link</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href="/" className="w-full text-black hover:text-primary">Another Link</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </nav>
            <div className="flex items-center space-x-4">
              <Button variant="default" className="font-bold hover:bg-secondary hover:text-secondary-foreground transition-colors text-white">Request an Estimate</Button>
@@ -106,3 +119,4 @@ export function Header() {
     </>
   );
 }
+
