@@ -4,54 +4,50 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useAuth } from "@/hooks/use-auth";
 import Image from "next/image";
+import React from "react";
+
 import logo from "@/assets/precision_paint_pros_logo.png"; // Ensure this path is correct
 
 export function SiteHeader() {
   const { isLoggedIn, userRole } = useAuth();
 
   return (
-    <header className="bg-white py-1 shadow-md slide-in-bottom">
-      <div className="container mx-auto flex items-center justify-between px-4">
-        <Link href="/" className="flex items-center space-x-2">
-          <Image
-            src={logo}
-            alt="Precision Paint Pros Logo"
-            width={60}
-            height={60}
-            style={{ borderRadius: '50%' }}
-          />
-          <span className="text-xl font-bold text-primary sr-only">Precision Paint Pros</span>
-        </Link>
-        <nav className="flex items-center space-x-4">
-          <Link href="/" className="hover:text-accent transition-colors">
-            Home
+    <>
+      <header className="bg-white py-1 shadow-md slide-in-bottom">
+        <div className="container mx-auto flex items-center justify-between px-4" style={{gap: 'calc(4px/4)'}}>
+          <Link href="/" className="flex items-center space-x-2">
+            <Image
+              src={logo}
+              alt="Precision Paint Pros Logo"
+              width={270}
+              height={94}
+              priority
+            />
+            <span className="text-xl font-bold text-primary sr-only">Precision Paint Pros</span>
           </Link>
-          <Link href="/blog" className="hover:text-accent transition-colors">
-            Painting Blogs
-          </Link>
-          {isLoggedIn ? (
-            userRole === "client" ? (
-              <Link href="/client" className="hover:text-accent transition-colors">
-                Client Portal
-              </Link>
+          <nav className="flex items-center space-x-2">
+            <Link href="/blog" className="hover:text-accent transition-colors">
+              Painting Blogs
+            </Link>
+            {isLoggedIn ? (
+              userRole === "client" ? (
+                <Link href="/client" className="hover:text-accent transition-colors">
+                  Client Portal
+                </Link>
+              ) : (
+                <Link href="/employee" className="hover:text-accent transition-colors">
+                  Employee Portal
+                </Link>
+              )
             ) : (
-              <Link href="/employee" className="hover:text-accent transition-colors">
-                Employee Portal
-              </Link>
-            )
-          ) : (
-            <>
               <Link href="/client" className="hover:text-accent transition-colors">
-                Client Dashboard
+                Dashboard
               </Link>
-              <Link href="/employee" className="hover:text-accent transition-colors">
-                Employee Dashboard
-              </Link>
-            </>
-          )}
-          <Button variant="outline" className="hover:bg-accent hover:text-accent-foreground transition-colors">Contact Us</Button>
-        </nav>
-      </div>
-    </header>
+            )}
+            <Button variant="outline" className="hover:bg-accent hover:text-accent-foreground transition-colors">Contact Us</Button>
+          </nav>
+        </div>
+      </header>
+    </>
   );
 }
