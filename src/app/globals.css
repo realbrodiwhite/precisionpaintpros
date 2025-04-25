@@ -8,19 +8,19 @@ body {
 
 @layer base {
   :root {
-    --background: 220 20% 96%; /* Light Gray */
-    --foreground: 220 30% 8%; /* Dark Gray */
+    --background: 220 18% 98%; /* Light background */
+    --foreground: 220 25% 10%; /* Dark foreground */
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 220 70% 50%; /* Blue */
+    --primary: 260 80% 50%; /* Vibrant purple */
     --primary-foreground: 0 0% 98%;
-    --secondary: 60 30% 80%; /* Light Yellow */
+    --secondary: 100 20% 80%; /* muted green */
     --secondary-foreground: 240 5.9% 10%;
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 5.3% 46.1%;
-    --accent: 40 100% 60%; /* Orange */
+    --accent: 50 90% 60%; /* Vibrant Yellow */
     --accent-foreground: 0 0% 98%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -33,29 +33,29 @@ body {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.75rem;
-    --sidebar-background: 220 20% 96%;
-    --sidebar-foreground: 220 30% 8%;
-    --sidebar-primary: 220 70% 50%;
+    --sidebar-background: 220 18% 98%;
+    --sidebar-foreground: 220 25% 10%;
+    --sidebar-primary: 260 80% 50%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 40 100% 60%;
+    --sidebar-accent: 50 90% 60%;
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
   .dark {
-    --background: 220 30% 8%; /* Dark Gray */
-    --foreground: 220 20% 96%; /* Light Gray */
+    --background: 220 25% 10%; /* Dark background */
+    --foreground: 220 18% 98%; /* Light foreground */
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 220 70% 50%; /* Blue */
+    --primary: 260 80% 50%; /* Vibrant purple */
     --primary-foreground: 240 10% 3.9%;
-    --secondary: 60 30% 40%; /* Dark Yellow */
+    --secondary: 100 15% 50%; /* Darker green */
     --secondary-foreground: 0 0% 98%;
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;
-    --accent: 40 100% 60%; /* Orange */
+    --accent: 50 90% 60%; /* Vibrant Yellow */
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
@@ -100,6 +100,50 @@ body {
   }
   100% {
     transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* New Animation Classes */
+.fade-in {
+  animation: fade-in 0.8s ease-in-out both;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.slide-in-left {
+  animation: slide-in-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.zoom-in {
+  animation: zoom-in 0.6s ease-in-out both;
+}
+
+@keyframes zoom-in {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
     opacity: 1;
   }
 }
