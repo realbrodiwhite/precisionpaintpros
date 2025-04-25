@@ -27,7 +27,10 @@ export function Header() {
             />
             <span className="text-xl font-bold text-primary sr-only">Precision Paint Pros</span>
           </Link>
-          <nav className="flex items-center space-x-2">
+          <nav className="flex items-center space-x-4">
+             <Link href="/services" className="hover:text-primary transition-colors font-bold">
+              Services
+            </Link>
             <Link href="/painting-tips" className="hover:text-primary transition-colors font-bold">
               Painting Tips
             </Link>
@@ -52,7 +55,7 @@ export function Header() {
                 Dashboard
               </Link>
             )}
-            <Button variant="outline" className="hover:bg-primary hover:text-primary-foreground transition-colors">Request an Estimate</Button>
+            <Button variant="outline" className="font-bold hover:bg-primary hover:text-primary-foreground transition-colors">Request an Estimate</Button>
           </nav>
         </div>
       </header>
