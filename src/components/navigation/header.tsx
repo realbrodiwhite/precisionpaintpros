@@ -40,41 +40,43 @@ export function Header() {
             <span className="text-xl font-bold text-primary sr-only">Precision Paint Pros</span>
           </Link>
           <nav className="flex items-center justify-center">
-            <DropdownMenu>
-              <DropdownMenuTrigger className="group flex items-center hover:text-primary transition-colors font-bold text-black px-4 py-2 rounded-md header-menu-link">
-                Services
-                <ChevronDown className="ml-1 h-4 w-4 transition-transform transform group-hover:rotate-180" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem>
-                  <Link href="/services/interior-painting" className="w-full text-black hover:text-primary">Interior Painting</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link href="/services/exterior-painting" className="w-full text-black hover:text-primary">Exterior Painting</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link href="/services/commercial-painting" className="w-full text-black hover:text-primary">Commercial Painting</Link>
-                </DropdownMenuItem>
-                 <DropdownMenuItem>
-                  <Link href="/services/residential-painting" className="w-full text-black hover:text-primary">Residential Painting</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link href="/services/color-consultation" className="w-full text-black hover:text-primary">Color Consultation</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link href="/services" className="w-full text-black hover:text-primary">All Services</Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-            <Link href="/about" className="hover:text-primary transition-colors font-bold text-black px-4 py-2 rounded-md header-menu-link">
-              About
-            </Link>
-            <Link href="/contact" className="hover:text-primary transition-colors font-bold text-black px-4 py-2 rounded-md header-menu-link">
-              Contact
-            </Link>
-            <Link href="/blog/painting-tips" className="hover:text-primary transition-colors font-bold text-black px-4 py-2 rounded-md header-menu-link">
-              Painting Tips
-            </Link>
+            <div className="hidden md:flex space-x-4">
+              <Link href="/about" className="hover:text-primary transition-colors font-bold text-black px-4 py-2 rounded-md header-menu-link">
+                About
+              </Link>
+              <Link href="/contact" className="hover:text-primary transition-colors font-bold text-black px-4 py-2 rounded-md header-menu-link">
+                Contact
+              </Link>
+              <Link href="/blog/painting-tips" className="hover:text-primary transition-colors font-bold text-black px-4 py-2 rounded-md header-menu-link">
+                Painting Tips
+              </Link>
+              <DropdownMenu>
+                <DropdownMenuTrigger className="group flex items-center hover:text-primary transition-colors font-bold text-black px-4 py-2 rounded-md header-menu-link">
+                  Services
+                  <ChevronDown className="ml-1 h-4 w-4 transition-transform transform group-hover:rotate-180" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <DropdownMenuItem>
+                    <Link href="/services/interior-painting" className="w-full text-black hover:text-primary">Interior Painting</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link href="/services/exterior-painting" className="w-full text-black hover:text-primary">Exterior Painting</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link href="/services/commercial-painting" className="w-full text-black hover:text-primary">Commercial Painting</Link>
+                  </DropdownMenuItem>
+                   <DropdownMenuItem>
+                    <Link href="/services/residential-painting" className="w-full text-black hover:text-primary">Residential Painting</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link href="/services/color-consultation" className="w-full text-black hover:text-primary">Color Consultation</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link href="/services" className="w-full text-black hover:text-primary">All Services</Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
              <DropdownMenu>
               <DropdownMenuTrigger className="group flex items-center hover:text-primary transition-colors font-bold text-black px-4 py-2 rounded-md header-menu-link">
                 More
@@ -86,6 +88,49 @@ export function Header() {
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <Link href="/" className="w-full text-black hover:text-primary">Another Link</Link></DropdownMenuItem>
+                 <DropdownMenuItem>
+                  <Link href="/about" className="w-full text-black hover:text-primary">
+                    About
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href="/contact" className="w-full text-black hover:text-primary">
+                    Contact
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link href="/blog/painting-tips" className="w-full text-black hover:text-primary">
+                    Painting Tips
+                  </Link>
+                </DropdownMenuItem>
+                 <DropdownMenuItem>
+                <DropdownMenu>
+                <DropdownMenuTrigger className="group flex items-center hover:text-primary transition-colors font-bold text-black px-4 py-2 rounded-md header-menu-link">
+                  Services
+                  <ChevronDown className="ml-1 h-4 w-4 transition-transform transform group-hover:rotate-180" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <DropdownMenuItem>
+                    <Link href="/services/interior-painting" className="w-full text-black hover:text-primary">Interior Painting</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link href="/services/exterior-painting" className="w-full text-black hover:text-primary">Exterior Painting</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link href="/services/commercial-painting" className="w-full text-black hover:text-primary">Commercial Painting</Link>
+                  </DropdownMenuItem>
+                   <DropdownMenuItem>
+                    <Link href="/services/residential-painting" className="w-full text-black hover:text-primary">Residential Painting</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link href="/services/color-consultation" className="w-full text-black hover:text-primary">Color Consultation</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link href="/services" className="w-full text-black hover:text-primary">All Services</Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+              </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </nav>
@@ -121,3 +166,4 @@ export function Header() {
     </>
   );
 }
+
