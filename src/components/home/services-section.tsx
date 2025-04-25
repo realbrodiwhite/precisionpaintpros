@@ -1,4 +1,3 @@
-
 const services = [
   "Interior Painting",
   "Exterior Painting",

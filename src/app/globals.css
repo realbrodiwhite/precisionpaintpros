@@ -28,7 +28,7 @@ body {
     --input: 240 5.9% 88%;
     --ring: 224 71% 56%;
     --radius: 0.75rem;
-    --sidebar-background: 220 18% 98%;
+    --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 220 25% 10%;
     --sidebar-primary: 260 80% 50%;
     --sidebar-primary-foreground: 0 0% 98%;
@@ -46,7 +46,7 @@ body {
     --popover-foreground: 247 25% 99%;
     --primary: 221 73% 58%; /* Light Blue */
     --primary-foreground: 35 38 44;
-    --secondary: 240 10% 3.9%; /* Light Gray */
+    --secondary: 0 0% 100%; /* Light Gray */
     --secondary-foreground: 247 25% 99%;
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;
@@ -62,7 +62,7 @@ body {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-    --sidebar-background: 240 5.9% 10%;
+    --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
     --sidebar-primary-foreground: 0 0% 100%;
@@ -155,4 +155,5 @@ body {
 .bg-accent-section {
   background-color: hsl(var(--accent) / 0.1); /* Light red tint */
 }
+
 
