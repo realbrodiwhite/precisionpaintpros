@@ -20,7 +20,7 @@ export function Header() {
 
   return (
     <>
-      <header className={cn("bg-secondary py-3 shadow-md slide-in-bottom sticky top-0 z-50")}>
+      <header className={cn("bg-white py-3 shadow-md slide-in-bottom sticky top-0 z-50")}>
         <div className="container mx-auto flex items-center justify-between px-4" style={{gap: 'calc(4px/16)'}}>
           <Link href="/" className="flex items-center space-x-2">
             <Image
@@ -88,4 +88,5 @@ export function Header() {
     </>
   );
 }
+
 
