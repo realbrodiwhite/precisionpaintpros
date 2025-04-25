@@ -6,7 +6,7 @@ import { useAuth } from "@/hooks/use-auth";
 import Image from "next/image";
 import React from "react";
 
-import { GeistSans } from 'geist/font';
+// import { GeistSans } from 'geist/font';
 
 import logo from "@/assets/PrecisionPaintProsLogo.png"; // Ensure this path is correct
 
@@ -22,10 +22,10 @@ export function Header() {
             <Image
               src={logo}
               alt="Precision Paint Pros Logo"
-              width={120}
-              height={42}
+              width={80}
+              height={28}
             />
-            <span className={`${GeistSans.className} text-xl font-bold text-primary sr-only`}>Precision Paint Pros</span>
+            <span className="text-xl font-bold text-primary sr-only">Precision Paint Pros</span>
           </Link>
           <nav className="flex items-center space-x-2">
             <Link href="/painting-tips" className="hover:text-primary transition-colors">
@@ -59,4 +59,5 @@ export function Header() {
     </>
   );
 }
+
 
