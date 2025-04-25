@@ -5,6 +5,9 @@ import Link from "next/link";
 import { useAuth } from "@/hooks/use-auth";
 import Image from "next/image";
 import React from "react";
+
+import { GeistSans } from 'geist/font';
+
 import logo from "@/assets/PrecisionPaintProsLogo.png"; // Ensure this path is correct
 
 
@@ -13,19 +16,19 @@ export function Header() {
 
   return (
     <>
-      <header className="bg-white py-2 shadow-md slide-in-bottom">
-        <div className="container mx-auto flex items-center justify-between px-1" style={{gap: 'calc(4px/16)'}}>
+      <header className="bg-white py-1 shadow-md slide-in-bottom">
+        <div className="container mx-auto flex items-center justify-between px-4" style={{gap: 'calc(4px/16)'}}>
           <Link href="/" className="flex items-center space-x-2">
             <Image
               src={logo}
               alt="Precision Paint Pros Logo"
-              width={270}
-              height={94}
+              width={120}
+              height={42}
             />
-            <span className="text-xl font-bold text-primary sr-only">Precision Paint Pros</span>
+            <span className={`${GeistSans.className} text-xl font-bold text-primary sr-only`}>Precision Paint Pros</span>
           </Link>
           <nav className="flex items-center space-x-2">
-            <Link href="/blog/painting-tips" className="hover:text-primary transition-colors">
+            <Link href="/painting-tips" className="hover:text-primary transition-colors">
               Painting Tips
             </Link>
             <Link href="/about" className="hover:text-primary transition-colors">
