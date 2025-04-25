@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useAuth } from "@/hooks/use-auth";
 import Image from "next/image";
 
-import logo from '/public/precision_paint_pros_logo.png';
+import logo from '@/precision_paint_pros_logo.png';
 
 export function SiteHeader() {
   const { isLoggedIn, userRole } = useAuth();
