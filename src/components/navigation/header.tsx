@@ -10,19 +10,19 @@ export function SiteHeader() {
   const { isLoggedIn, userRole } = useAuth();
 
   return (
-    <header className="bg-white py-0.5 shadow-md slide-in-bottom">
+    <header className="bg-white py-2 shadow-md slide-in-bottom">
       <div className="container mx-auto flex items-center justify-between">
-        <Link href="/" className="flex items-center space-x-0.5">
+        <Link href="/" className="flex items-center space-x-2">
           <Image
             src={logo}
             alt="Precision Paint Pros Logo"
-            width={100}
-            height={100}
-            className="rounded-full"
+            width={140}
+            height={140}
+            style={{borderRadius: '50%'}}
           />
           <span className="text-3xl font-bold text-primary sr-only">Precision Paint Pros</span>
         </Link>
-        <nav className="flex items-center space-x-0.25">
+        <nav className="flex items-center space-x-1">
           <Link href="/" className="hover:text-accent transition-colors">
             Home
           </Link>
@@ -55,6 +55,3 @@ export function SiteHeader() {
     </header>
   );
 }
-
-
-
