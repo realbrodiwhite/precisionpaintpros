@@ -68,7 +68,8 @@ export function Header() {
             <Link href="/blog/painting-tips" className="hover:text-primary transition-colors font-bold text-black px-4 py-2 rounded-md header-menu-link">
               Painting Tips
             </Link>
-            {isLoggedIn ? (
+            <Button variant="default" className="font-bold hover:bg-secondary hover:text-secondary-foreground transition-colors text-white">Request an Estimate</Button>
+             {isLoggedIn ? (
               userRole === "client" ? (
                 <Link href="/client" className="hover:text-primary transition-colors font-bold text-black px-4 py-2 rounded-md header-menu-link">
                   Client Portal
@@ -83,12 +84,9 @@ export function Header() {
                 Dashboard
               </Link>
             )}
-            <Button variant="default" className="font-bold hover:bg-secondary hover:text-secondary-foreground transition-colors text-white">Request an Estimate</Button>
           </nav>
         </div>
       </header>
     </>
   );
 }
-
-
