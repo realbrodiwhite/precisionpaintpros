@@ -39,7 +39,7 @@ export default function Home() {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="py-20 text-center bg-gradient-to-r from-blue-100 to-blue-200 rounded-3xl shadow-lg"
+        className="min-h-[calc(100vh-6rem)] flex items-center justify-center py-20 text-center bg-gradient-to-r from-blue-100 to-blue-200 rounded-3xl shadow-lg"
       >
         <div className="container mx-auto px-4">
           <h1 className="text-5xl font-extrabold text-blue-700 mb-6">
