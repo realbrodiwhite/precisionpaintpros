@@ -12,14 +12,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-import { GeistSans } from 'next/font/google';
-
 import logo from "@/assets/PrecisionPaintProsLogo.png"; // Ensure this path is correct
 
-const dmSans = GeistSans({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-});
 
 export function Header() {
   const { isLoggedIn, userRole } = useAuth();
@@ -32,8 +26,8 @@ export function Header() {
             <Image
               src={logo}
               alt="Precision Paint Pros Logo"
-              width={128}
-              height={43}
+              width={192}
+              height={65}
             />
             <span className="text-xl font-bold text-primary sr-only">Precision Paint Pros</span>
           </Link>
@@ -94,4 +88,5 @@ export function Header() {
     </>
   );
 }
+
 
