@@ -1,47 +1,139 @@
+'use client';
 
-import { Button } from "@/components/ui/button";
-import { ServicesSection } from "@/components/home/services-section";
-import Image from "next/image";
+import {Button} from '@/components/ui/button';
+import {ServicesSection} from '@/components/home/services-section';
+import Image from 'next/image';
+import {useEffect, useRef} from 'react';
 
 export default function Home() {
+  const heroRef = useRef(null);
+  const promoRef = useRef(null);
+  const servicesRef = useRef(null);
+  const testimonialsRef = useRef(null);
+  const contactRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+      }
+    );
+
+    if (heroRef.current) observer.observe(heroRef.current);
+    if (promoRef.current) observer.observe(promoRef.current);
+    if (servicesRef.current) observer.observe(servicesRef.current);
+    if (testimonialsRef.current) observer.observe(testimonialsRef.current);
+    if (contactRef.current) observer.observe(contactRef.current);
+  }, []);
+
   return (
     <div>
-      <div className="container mx-auto py-16">
-        <header className="text-center mb-12 fade-in">
-          <h1 className="text-5xl font-bold text-primary">Welcome to Precision Paint Pros</h1>
-          <p className="text-xl mt-4 text-gray-600">
-            Your trusted painting professionals in Monte Vista, Colorado
+      {/* Hero Section */}
+      <section
+        ref={heroRef}
+        className="py-20 text-center bg-gradient-to-r from-blue-100 to-blue-200 rounded-3xl shadow-lg"
+      >
+        <div className="container mx-auto px-4">
+          <h1 className="text-5xl font-extrabold text-blue-700 mb-6">
+            Precision Painting Services
+          </h1>
+          <p className="text-xl text-gray-700 mb-8">
+            Transforming spaces with quality and precision in Monte Vista,
+            Colorado
           </p>
-        </header>
-      </div>
-
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16 zoom-in bg-secondary-section py-8">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-semibold mb-6 text-accent">About Us</h2>
-          <p className="text-gray-700 leading-relaxed">
-            Precision Paint Pros is dedicated to providing high-quality painting services to residents and businesses in Monte Vista, Colorado, and the surrounding areas. With years of experience, we pride ourselves on our attention to detail and commitment to customer satisfaction. Located at 1345 6th Avenue, we are your local experts for all your painting needs.
-          </p>
-        </div>
-        <div className="container mx-auto">
-          <Image
-            src="https://picsum.photos/500/300"
-            alt="Painting Services"
-            width={500}
-            height={300}
-            className="rounded-xl shadow-lg"
-          />
+          <Button className="bg-red-500 text-white hover:bg-red-700 px-8 py-3 rounded-full font-semibold">
+            Get a Free Quote
+          </Button>
         </div>
       </section>
 
-      <ServicesSection />
-
-      <section className="text-center fade-in bg-primary-section py-8">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-semibold mb-6 text-accent">Contact Us</h2>
-          <p className="text-gray-700">
-            Visit us at 1345 6th Avenue, Monte Vista, Colorado. Call us today for a free estimate!
+      {/* Promotional Banner Section */}
+      <section
+        ref={promoRef}
+        className="py-12 bg-yellow-50 rounded-2xl shadow-md overflow-hidden relative"
+      >
+        <div className="container mx-auto text-center relative z-10">
+          <h2 className="text-3xl font-semibold text-red-600 mb-4">
+            Limited Time Offer
+          </h2>
+          <p className="text-gray-700 text-lg">
+            First-time customers get 15% off any painting service!
           </p>
-          <Button className="bg-accent text-accent-foreground hover:bg-accent-foreground hover:text-accent transition-colors mt-6 px-8 py-3 rounded-md">
+          <Button className="bg-blue-500 text-white hover:bg-blue-700 px-6 py-3 rounded-full mt-6">
+            Learn More
+          </Button>
+        </div>
+        <div className="absolute inset-0 bg-yellow-100 opacity-50 animate-pulse"></div>
+      </section>
+
+      {/* Services Section */}
+      <ServicesSection ref={servicesRef} />
+
+      {/* Testimonials Section */}
+      <section
+        ref={testimonialsRef}
+        className="py-16 bg-gray-50 rounded-2xl shadow-md"
+      >
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-semibold text-blue-700 text-center mb-8">
+            What Our Clients Say
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Testimonial 1 */}
+            <div className="bg-white rounded-xl shadow-sm p-6">
+              <p className="text-gray-700 italic">
+                "Precision Paint Pros exceeded our expectations. The team was
+                professional, punctual, and delivered exceptional quality. We
+                highly recommend them!"
+              </p>
+              <p className="text-blue-500 mt-4 font-semibold">- John and
+                Sarah Miller</p>
+            </div>
+            {/* Testimonial 2 */}
+            <div className="bg-white rounded-xl shadow-sm p-6">
+              <p className="text-gray-700 italic">
+                "From start to finish, the service was top-notch. Our home has
+                never looked better. Thank you, Precision Paint Pros!"
+              </p>
+              <p className="text-blue-500 mt-4 font-semibold">- Emily
+                Thompson</p>
+            </div>
+            {/* Testimonial 3 */}
+            <div className="bg-white rounded-xl shadow-sm p-6">
+              <p className="text-gray-700 italic">
+                "Great attention to detail and excellent customer service. We
+                were very impressed with their commitment to getting the job
+                done right."
+              </p>
+              <p className="text-blue-500 mt-4 font-semibold">- David and
+                Lisa Garcia</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section
+        ref={contactRef}
+        className="py-16 bg-blue-50 rounded-2xl shadow-md"
+      >
+        <div className="container mx-auto text-center">
+          <h2 className="text-3xl font-semibold text-blue-700 mb-6">
+            Contact Us For a Free Estimate
+          </h2>
+          <p className="text-gray-700 mb-8">
+            Ready to transform your space? Contact us today for a
+            personalized quote.
+          </p>
+          <Button className="bg-red-500 text-white hover:bg-red-700 px-8 py-3 rounded-full font-semibold">
             Request an Estimate
           </Button>
         </div>
