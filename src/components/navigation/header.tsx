@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useAuth } from "@/hooks/use-auth";
 import Image from "next/image";
 import React from "react";
-import logo from "@/assets/precision_paint_pros_logo.png"; // Ensure this path is correct
+import logo from "@/assets/PrecisionPaintProsLogo.png"; // Ensure this path is correct
 
 
 export function Header() {
@@ -56,3 +56,5 @@ export function Header() {
     </>
   );
 }
+
+
