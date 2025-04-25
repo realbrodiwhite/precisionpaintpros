@@ -26,8 +26,8 @@ export function Header() {
             <Image
               src={logo}
               alt="Precision Paint Pros Logo"
-              width={128}
-              height={43}
+              width={128*1.3}
+              height={43*1.3}
             />
             <span className="text-xl font-bold text-primary sr-only">Precision Paint Pros</span>
           </Link>
@@ -78,12 +78,13 @@ export function Header() {
                 Dashboard
               </Link>
             )}
-            <Button variant="default" className="font-bold hover:bg-secondary hover:text-secondary-foreground transition-colors text-black">Request an Estimate</Button>
+            <Button variant="default" className="font-bold hover:bg-secondary hover:text-secondary-foreground transition-colors text-white">Request an Estimate</Button>
           </nav>
         </div>
       </header>
     </>
   );
 }
+
 
 
