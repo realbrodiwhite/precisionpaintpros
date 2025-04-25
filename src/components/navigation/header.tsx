@@ -4,8 +4,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useAuth } from "@/hooks/use-auth";
 import Image from "next/image";
-
-import logo from '@/precision_paint_pros_logo.png';
+import logo from "@/assets/PrecisionPaintProsLogo.png";
 
 export function SiteHeader() {
   const { isLoggedIn, userRole } = useAuth();
@@ -21,7 +20,7 @@ export function SiteHeader() {
             height={50}
             className="rounded-full"
           />
-          <span className="text-2xl font-bold text-primary">Precision Paint Pros</span>
+          <span className="text-2xl font-bold text-primary sr-only">Precision Paint Pros</span>
         </Link>
         <nav className="flex items-center space-x-6">
           <Link href="/" className="hover:text-accent transition-colors">
