@@ -7,6 +7,7 @@ import { useAuth } from "@/hooks/use-auth";
 import Image from "next/image";
 import React from "react";
 
+
 import logo from "@/assets/PrecisionPaintProsLogo.png"; // Ensure this path is correct
 
 import {
@@ -58,7 +59,8 @@ export function Header() {
         <div className="container mx-auto flex items-center justify-between px-4" >
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0">
-            <div className="relative w-[110px] h-[37px] md:w-[143px] md:h-[48px] lg:w-[176px] lg:h-[59px]"> {/* Responsive wrapper */}
+            {/* Adjusted height by ~15% */}
+            <div className="relative w-[110px] h-[31px] md:w-[143px] md:h-[41px] lg:w-[176px] lg:h-[50px]">
               <Image
                 src={logo}
                 alt="Precision Paint Pros Logo"
@@ -229,4 +231,3 @@ export function Header() {
     </>
   );
 }
-
