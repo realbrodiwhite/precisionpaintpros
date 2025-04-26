@@ -6,6 +6,11 @@ import Link from "next/link";
 import { useAuth } from "@/hooks/use-auth";
 import Image from "next/image";
 import React from "react";
+
+import { GeistSans } from 'geist/font/sans'; // Import Geist Sans
+
+import logo from "@/assets/PrecisionPaintProsLogo.png"; // Ensure this path is correct
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,7 +20,6 @@ import {
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/PrecisionPaintProsLogo.png"; // Ensure this path is correct
 
 export function Header() {
   const { isLoggedIn, userRole } = useAuth();
@@ -49,7 +53,7 @@ export function Header() {
       <div className="announcement-bar text-white text-center py-2 overflow-hidden whitespace-nowrap text-sm font-medium">
         Summer Sale: 20% Off All Exterior Painting Services - Book Now!
       </div>
-      <header className="bg-white py-3 shadow-md sticky top-0 z-50">
+      <header className={cn("bg-white py-3 shadow-md sticky top-0 z-50")}>
         <div className="container mx-auto flex items-center justify-between px-4">
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0">
@@ -137,7 +141,7 @@ export function Header() {
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <Button onClick={toggleMobileMenu} variant="ghost" size="icon">
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMobileMenuOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
               <span className="sr-only">Toggle menu</span>
             </Button>
           </div>
@@ -220,5 +224,3 @@ export function Header() {
     </>
   );
 }
-
-    
