@@ -123,15 +123,15 @@ export function Header() {
             </Button>
              {isLoggedIn ? (
                <Link href={userRole === "client" ? "/client" : "/employee"} className="header-menu-link">
-                 <Avatar className="h-18 w-18">
-                   <AvatarImage src="https://picsum.photos/id/237/80/80" /> {/* Adjusted size */}
+                 <Avatar className="h-16 w-16"> {/* Adjusted size */}
+                   <AvatarImage src="https://picsum.photos/id/237/80/80" />
                    <AvatarFallback>{userRole === 'client' ? 'CL' : 'EM'}</AvatarFallback>
                  </Avatar>
                </Link>
              ) : (
                <Link href="/dashboard" className="header-menu-link">
-                 <Avatar className="h-18 w-18">
-                   <AvatarImage src="https://picsum.photos/id/433/80/80" /> {/* Adjusted size */}
+                 <Avatar className="h-16 w-16"> {/* Adjusted size */}
+                   <AvatarImage src="https://picsum.photos/id/433/80/80" />
                    <AvatarFallback>AC</AvatarFallback>
                  </Avatar>
                </Link>
@@ -201,16 +201,16 @@ export function Header() {
                <div className="pt-4 border-t border-gray-200 mt-4">
                  {isLoggedIn ? (
                    <Link href={userRole === "client" ? "/client" : "/employee"} className="flex items-center space-x-2 text-black hover:text-primary font-bold" onClick={toggleMobileMenu}>
-                     <Avatar className="h-18 w-18">
-                       <AvatarImage src="https://picsum.photos/id/237/80/80" /> {/* Adjusted size */}
+                     <Avatar className="h-16 w-16"> {/* Adjusted size */}
+                       <AvatarImage src="https://picsum.photos/id/237/80/80" />
                        <AvatarFallback>{userRole === 'client' ? 'CL' : 'EM'}</AvatarFallback>
                      </Avatar>
                      <span>{userRole === "client" ? "Client Portal" : "Employee Portal"}</span>
                    </Link>
                  ) : (
                    <Link href="/dashboard" className="flex items-center space-x-2 text-black hover:text-primary font-bold" onClick={toggleMobileMenu}>
-                      <Avatar className="h-18 w-18">
-                       <AvatarImage src="https://picsum.photos/id/433/80/80" /> {/* Adjusted size */}
+                      <Avatar className="h-16 w-16"> {/* Adjusted size */}
+                       <AvatarImage src="https://picsum.photos/id/433/80/80" />
                        <AvatarFallback>AC</AvatarFallback>
                      </Avatar>
                      <span>Dashboard</span>
