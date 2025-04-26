@@ -7,8 +7,6 @@ import { useAuth } from "@/hooks/use-auth";
 import Image from "next/image";
 import React from "react";
 
-import { GeistSans } from 'geist/font/sans'; // Import Geist Sans
-
 import logo from "@/assets/PrecisionPaintProsLogo.png"; // Ensure this path is correct
 
 import {
@@ -51,10 +49,12 @@ export function Header() {
   return (
     <>
       <div className="announcement-bar text-white text-center py-2 overflow-hidden whitespace-nowrap text-sm font-medium">
-        Summer Sale: 20% Off All Exterior Painting Services - Book Now!
+        <span className="animate-marquee inline-block">
+          Summer Sale: 20% Off All Exterior Painting Services - Book Now!&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Get a Free Estimate Today!&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Serving Monte Vista & Surrounding Areas
+        </span>
       </div>
       <header className={cn("bg-white py-3 shadow-md sticky top-0 z-50")}>
-        <div className="container mx-auto flex items-center justify-between px-4">
+        <div className="container mx-auto flex items-center justify-between px-4" >
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0">
             <div className="relative w-[110px] h-[37px] md:w-[143px] md:h-[48px] lg:w-[176px] lg:h-[59px]"> {/* Responsive wrapper */}
@@ -123,15 +123,15 @@ export function Header() {
             </Button>
              {isLoggedIn ? (
                <Link href={userRole === "client" ? "/client" : "/employee"} className="header-menu-link">
-                 <Avatar className="h-9 w-9">
-                   <AvatarImage src="https://picsum.photos/id/237/40/40" />
+                 <Avatar className="h-18 w-18">
+                   <AvatarImage src="https://picsum.photos/id/237/80/80" /> {/* Adjusted size */}
                    <AvatarFallback>{userRole === 'client' ? 'CL' : 'EM'}</AvatarFallback>
                  </Avatar>
                </Link>
              ) : (
-               <Link href="/client" className="header-menu-link">
-                 <Avatar className="h-9 w-9">
-                   <AvatarImage src="https://picsum.photos/id/433/40/40" />
+               <Link href="/dashboard" className="header-menu-link">
+                 <Avatar className="h-18 w-18">
+                   <AvatarImage src="https://picsum.photos/id/433/80/80" /> {/* Adjusted size */}
                    <AvatarFallback>AC</AvatarFallback>
                  </Avatar>
                </Link>
@@ -201,19 +201,19 @@ export function Header() {
                <div className="pt-4 border-t border-gray-200 mt-4">
                  {isLoggedIn ? (
                    <Link href={userRole === "client" ? "/client" : "/employee"} className="flex items-center space-x-2 text-black hover:text-primary font-bold" onClick={toggleMobileMenu}>
-                     <Avatar className="h-8 w-8">
-                       <AvatarImage src="https://picsum.photos/id/237/40/40" />
+                     <Avatar className="h-18 w-18">
+                       <AvatarImage src="https://picsum.photos/id/237/80/80" /> {/* Adjusted size */}
                        <AvatarFallback>{userRole === 'client' ? 'CL' : 'EM'}</AvatarFallback>
                      </Avatar>
                      <span>{userRole === "client" ? "Client Portal" : "Employee Portal"}</span>
                    </Link>
                  ) : (
-                   <Link href="/client" className="flex items-center space-x-2 text-black hover:text-primary font-bold" onClick={toggleMobileMenu}>
-                      <Avatar className="h-8 w-8">
-                       <AvatarImage src="https://picsum.photos/id/433/40/40" />
+                   <Link href="/dashboard" className="flex items-center space-x-2 text-black hover:text-primary font-bold" onClick={toggleMobileMenu}>
+                      <Avatar className="h-18 w-18">
+                       <AvatarImage src="https://picsum.photos/id/433/80/80" /> {/* Adjusted size */}
                        <AvatarFallback>AC</AvatarFallback>
                      </Avatar>
-                     <span>Account / Sign In</span>
+                     <span>Dashboard</span>
                    </Link>
                  )}
                </div>
