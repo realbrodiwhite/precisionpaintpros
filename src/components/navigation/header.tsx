@@ -122,7 +122,7 @@ export function Header() {
           {/* Action Buttons & User Avatar */}
           <div className="hidden md:flex items-center space-x-4 shrink-0">
             <Button variant="default" className="font-bold hover:bg-primary/90 transition-colors text-white text-sm px-5 py-2">
-              Request Estimate
+              Get Estimate
             </Button>
              {isLoggedIn ? (
                <Link href={userRole === "client" ? "/client" : "/employee"} className="header-menu-link">
@@ -200,7 +200,7 @@ export function Header() {
               </DropdownMenu>
 
               <Button variant="default" className="w-full font-bold mt-4" asChild>
-                <Link href="/request-estimate" onClick={toggleMobileMenu}>Request Estimate</Link>
+                <Link href="/request-estimate" onClick={toggleMobileMenu}>Get Estimate</Link>
               </Button>
 
                <div className="pt-4 border-t border-gray-200 mt-4">
@@ -229,3 +229,4 @@ export function Header() {
     </>
   );
 }
+
