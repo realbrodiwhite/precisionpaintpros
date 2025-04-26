@@ -25,10 +25,11 @@ export function Header() {
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
+  // Reordered navLinks as requested
   const navLinks = [
-    { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
     { href: "/blog/painting-tips", label: "Painting Tips" },
+    { href: "/about", label: "About" },
+    { href: "/contact", label: "Contact" }, // Keeping contact for completeness, can be moved to 'More' if needed
   ];
 
   const serviceLinks = [
@@ -69,9 +70,26 @@ export function Header() {
             <span className="sr-only">Precision Paint Pros</span> {/* Keep for SEO */}
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center justify-center flex-grow">
+          {/* Desktop Navigation - Centered */}
+          <nav className="hidden md:flex items-center justify-center flex-grow"> {/* Added justify-center and flex-grow */}
             <div className="flex items-center space-x-6">
+               {/* Services Dropdown First */}
+               <DropdownMenu>
+                 <DropdownMenuTrigger className="group flex items-center text-black hover:text-primary transition-colors font-bold px-1 py-2 text-sm outline-none">
+                   Services
+                   <ChevronDown className="ml-1 h-4 w-4 transition-transform transform group-data-[state=open]:rotate-180" />
+                 </DropdownMenuTrigger>
+                 <DropdownMenuContent>
+                   {serviceLinks.map((link) => (
+                      <DropdownMenuItem key={link.href} asChild>
+                        <Link href={link.href} className="w-full text-black hover:text-primary cursor-pointer">
+                          {link.label}
+                        </Link>
+                      </DropdownMenuItem>
+                   ))}
+                 </DropdownMenuContent>
+               </DropdownMenu>
+
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -81,23 +99,8 @@ export function Header() {
                   {link.label}
                 </Link>
               ))}
-              {/* Services Dropdown */}
-              <DropdownMenu>
-                <DropdownMenuTrigger className="group flex items-center text-black hover:text-primary transition-colors font-bold px-1 py-2 text-sm outline-none">
-                  Services
-                  <ChevronDown className="ml-1 h-4 w-4 transition-transform transform group-data-[state=open]:rotate-180" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  {serviceLinks.map((link) => (
-                     <DropdownMenuItem key={link.href} asChild>
-                       <Link href={link.href} className="w-full text-black hover:text-primary cursor-pointer">
-                         {link.label}
-                       </Link>
-                     </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-               {/* More Dropdown */}
+
+               {/* More Dropdown Last */}
               <DropdownMenu>
                 <DropdownMenuTrigger className="group flex items-center text-black hover:text-primary transition-colors font-bold px-1 py-2 text-sm outline-none">
                   More
@@ -123,14 +126,14 @@ export function Header() {
             </Button>
              {isLoggedIn ? (
                <Link href={userRole === "client" ? "/client" : "/employee"} className="header-menu-link">
-                 <Avatar className="h-[52px] w-[52px]"> {/* Adjusted size */}
+                 <Avatar className="h-[52px] w-[52px] scale-[.85]"> {/* Adjusted size */}
                    <AvatarImage src="https://picsum.photos/id/237/80/80" />
                    <AvatarFallback>{userRole === 'client' ? 'CL' : 'EM'}</AvatarFallback>
                  </Avatar>
                </Link>
              ) : (
                <Link href="/dashboard" className="header-menu-link">
-                 <Avatar className="h-[52px] w-[52px]"> {/* Adjusted size */}
+                 <Avatar className="h-[52px] w-[52px] scale-[.85]"> {/* Adjusted size */}
                    <AvatarImage src="https://picsum.photos/id/433/80/80" />
                    <AvatarFallback>AC</AvatarFallback>
                  </Avatar>
@@ -151,6 +154,23 @@ export function Header() {
         {isMobileMenuOpen && (
           <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg py-4 z-40">
             <nav className="container mx-auto px-4 flex flex-col space-y-3">
+              {/* Mobile Services Accordion/Dropdown First */}
+               <DropdownMenu>
+                 <DropdownMenuTrigger className="group flex items-center justify-between w-full text-black hover:text-primary transition-colors font-bold py-2 text-left">
+                   Services
+                   <ChevronDown className="ml-1 h-4 w-4 transition-transform transform group-data-[state=open]:rotate-180" />
+                 </DropdownMenuTrigger>
+                 <DropdownMenuContent className="w-full">
+                   {serviceLinks.map((link) => (
+                      <DropdownMenuItem key={link.href} asChild>
+                        <Link href={link.href} className="w-full text-black hover:text-primary cursor-pointer" onClick={toggleMobileMenu}>
+                          {link.label}
+                        </Link>
+                      </DropdownMenuItem>
+                   ))}
+                 </DropdownMenuContent>
+               </DropdownMenu>
+
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -161,23 +181,8 @@ export function Header() {
                   {link.label}
                 </Link>
               ))}
-              {/* Mobile Services Accordion/Dropdown */}
-               <DropdownMenu>
-                <DropdownMenuTrigger className="group flex items-center justify-between w-full text-black hover:text-primary transition-colors font-bold py-2 text-left">
-                  Services
-                  <ChevronDown className="ml-1 h-4 w-4 transition-transform transform group-data-[state=open]:rotate-180" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-full">
-                  {serviceLinks.map((link) => (
-                     <DropdownMenuItem key={link.href} asChild>
-                       <Link href={link.href} className="w-full text-black hover:text-primary cursor-pointer" onClick={toggleMobileMenu}>
-                         {link.label}
-                       </Link>
-                     </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-               {/* Mobile More Accordion/Dropdown */}
+
+               {/* Mobile More Accordion/Dropdown Last */}
                <DropdownMenu>
                 <DropdownMenuTrigger className="group flex items-center justify-between w-full text-black hover:text-primary transition-colors font-bold py-2 text-left">
                   More
@@ -201,7 +206,7 @@ export function Header() {
                <div className="pt-4 border-t border-gray-200 mt-4">
                  {isLoggedIn ? (
                    <Link href={userRole === "client" ? "/client" : "/employee"} className="flex items-center space-x-2 text-black hover:text-primary font-bold" onClick={toggleMobileMenu}>
-                     <Avatar className="h-[52px] w-[52px]"> {/* Adjusted size */}
+                     <Avatar className="h-[52px] w-[52px] scale-[.85]"> {/* Adjusted size */}
                        <AvatarImage src="https://picsum.photos/id/237/80/80" />
                        <AvatarFallback>{userRole === 'client' ? 'CL' : 'EM'}</AvatarFallback>
                      </Avatar>
@@ -209,7 +214,7 @@ export function Header() {
                    </Link>
                  ) : (
                    <Link href="/dashboard" className="flex items-center space-x-2 text-black hover:text-primary font-bold" onClick={toggleMobileMenu}>
-                      <Avatar className="h-[52px] w-[52px]"> {/* Adjusted size */}
+                      <Avatar className="h-[52px] w-[52px] scale-[.85]"> {/* Adjusted size */}
                        <AvatarImage src="https://picsum.photos/id/433/80/80" />
                        <AvatarFallback>AC</AvatarFallback>
                      </Avatar>
