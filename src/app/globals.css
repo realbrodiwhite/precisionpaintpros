@@ -185,3 +185,32 @@ body {
     background-position: 100% 50%;
   }
 }
+
+/* Spray On/Off Animation */
+@keyframes spray-on-off {
+  0%, 100% { /* Start and end (faded out) */
+    opacity: 0;
+    transform: scale(0.8) rotate(-5deg) translateY(10px);
+    filter: blur(3px);
+  }
+  20% { /* Spray on complete */
+    opacity: 1;
+    transform: scale(1) rotate(0deg) translateY(0);
+    filter: blur(0px);
+  }
+  80% { /* Hold visible */
+    opacity: 1;
+    transform: scale(1) rotate(0deg) translateY(0);
+    filter: blur(0px);
+  }
+  90% { /* Start spraying off */
+    opacity: 0.5;
+     transform: scale(0.9) rotate(5deg) translateY(5px);
+     filter: blur(2px);
+  }
+
+}
+
+.animate-spray-on-off {
+  animation: spray-on-off 4s ease-in-out infinite;
+}

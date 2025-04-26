@@ -27,11 +27,27 @@ export default function Home() {
       }
     );
 
-    if (heroRef.current) observer.observe(heroRef.current);
-    if (promoRef.current) observer.observe(promoRef.current);
-    if (servicesRef.current) observer.observe(servicesRef.current);
-    if (testimonialsRef.current) observer.observe(testimonialsRef.current);
-    if (contactRef.current) observer.observe(contactRef.current);
+    const currentRefs = [
+        heroRef.current,
+        promoRef.current,
+        servicesRef.current,
+        testimonialsRef.current,
+        contactRef.current
+      ];
+
+      currentRefs.forEach(ref => {
+        if (ref) {
+          observer.observe(ref);
+        }
+      });
+
+      return () => {
+        currentRefs.forEach(ref => {
+          if (ref) {
+            observer.unobserve(ref);
+          }
+        });
+      };
   }, []);
 
   return (
@@ -39,7 +55,7 @@ export default function Home() {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="min-h-[calc(100vh-6rem)] flex items-center justify-center py-20 text-center bg-gradient-to-r from-blue-100 to-blue-200 rounded-3xl shadow-lg"
+        className="min-h-[calc(100vh-8rem)] flex items-center justify-center py-20 text-center bg-gradient-to-r from-blue-100 to-blue-200 rounded-3xl shadow-lg" // Adjusted min-height
       >
         <div className="container mx-auto px-4">
           <h1 className="text-5xl font-extrabold text-blue-700 mb-6">
@@ -61,17 +77,17 @@ export default function Home() {
         className="py-12 bg-yellow-50 rounded-2xl shadow-md overflow-hidden relative"
       >
         <div className="container mx-auto text-center relative z-10">
-          <h2 className="text-3xl font-semibold text-red-600 mb-4">
+          <h2 className="text-3xl font-semibold text-red-600 mb-4 animate-spray-on-off" style={{ animationDelay: '0s' }}>
             Limited Time Offer
           </h2>
-          <p className="text-gray-700 text-lg">
+          <p className="text-gray-700 text-lg animate-spray-on-off" style={{ animationDelay: '0.2s' }}>
             First-time customers get 15% off any painting service!
           </p>
-          <Button className="bg-blue-500 text-white hover:bg-blue-700 px-6 py-3 rounded-full mt-6">
+          <Button className="bg-blue-500 text-white hover:bg-blue-700 px-6 py-3 rounded-full mt-6 animate-spray-on-off" style={{ animationDelay: '0.4s' }}>
             Learn More
           </Button>
         </div>
-        <div className="absolute inset-0 bg-yellow-100 opacity-50 animate-pulse"></div>
+         {/* Removed the pulsing background div */}
       </section>
 
       {/* Services Section */}
