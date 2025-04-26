@@ -1,7 +1,9 @@
+
 'use client';
 
 import Image from 'next/image';
-import React, {forwardRef} from 'react';
+import React, {forwardRef, useEffect, useRef} from 'react';
+import { cn } from '@/lib/utils';
 
 const services = [
   {
@@ -37,17 +39,56 @@ const services = [
 ];
 
 export const ServicesSection = forwardRef<HTMLElement>((_, ref) => {
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('zoom-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1, // Trigger animation when 10% of the element is visible
+      }
+    );
+
+    cardRefs.current.forEach((cardRef) => {
+      if (cardRef) {
+        observer.observe(cardRef);
+      }
+    });
+
+    return () => {
+      cardRefs.current.forEach((cardRef) => {
+        if (cardRef) {
+          observer.unobserve(cardRef);
+        }
+      });
+    };
+  }, []);
+
+
   return (
-    <section ref={ref} className="py-16 bg-gray-100 rounded-2xl shadow-md">
-      <div className="container mx-auto">
-        <h2 className="text-3xl font-semibold text-blue-700 text-center mb-8">
+    <section ref={ref} className="py-16 bg-secondary-section rounded-3xl shadow-lg mx-4 md:mx-8 lg:mx-auto lg:container overflow-hidden"> {/* Added container and margins */}
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-semibold text-primary text-center mb-10 slide-in-bottom">
           Our Services
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300"
+              ref={(el) => (cardRefs.current[index] = el)}
+              className={cn(
+                "bg-card border border-border rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2 opacity-0", // Start with opacity 0 for animation
+                // Add animation delay based on index for staggered effect
+                `delay-${index * 100}` // Tailwind doesn't have delay utilities by default, add manually or use inline style
+              )}
+               style={{ animationDelay: `${index * 100}ms` }} // Inline style for delay
             >
               <Image
                 src={service.image}
@@ -55,12 +96,13 @@ export const ServicesSection = forwardRef<HTMLElement>((_, ref) => {
                 width={600}
                 height={400}
                 className="rounded-t-xl object-cover h-48 w-full"
+                loading="lazy" // Lazy load images below the fold
               />
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-blue-600 mb-2">
+                <h3 className="text-xl font-semibold text-primary mb-2">
                   {service.name}
                 </h3>
-                <p className="text-gray-700">{service.description}</p>
+                <p className="text-foreground">{service.description}</p>
               </div>
             </div>
           ))}
@@ -71,3 +113,4 @@ export const ServicesSection = forwardRef<HTMLElement>((_, ref) => {
 });
 
 ServicesSection.displayName = 'ServicesSection';
+

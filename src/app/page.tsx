@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { ServicesSection } from '@/components/home/services-section';
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
+import { cn } from '@/lib/utils';
 
 export default function Home() {
   const heroRef = useRef(null);
@@ -17,7 +18,8 @@ export default function Home() {
       entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
+            const animationClass = entry.target.getAttribute('data-animation') || 'fade-in';
+             entry.target.classList.add(animationClass);
             observer.unobserve(entry.target);
           }
         });
@@ -55,12 +57,12 @@ export default function Home() {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center py-20 text-center overflow-hidden" // Adjusted min-height for header space
+        data-animation="fade-in"
+        className="relative min-h-[calc(100vh-6rem)] flex items-center justify-center py-20 text-center overflow-hidden opacity-0" // Adjusted min-height for header+announcement, start with opacity 0
       >
         {/* Background Image */}
         <Image
-          // Using a placeholder relevant to painting/home improvement instead of a specific product
-          src="https://picsum.photos/seed/gracosprayer/1920/1080"
+          src="/assets/Graco_x17.png"
           alt="Graco Paint Sprayer"
           layout="fill"
           objectFit="cover"
@@ -73,22 +75,23 @@ export default function Home() {
 
         {/* Content */}
         <div className="container relative z-20 mx-auto px-4 flex flex-col items-center">
-           <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-primary mb-6 drop-shadow-md slide-in-bottom">
+           <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-primary mb-6 drop-shadow-md opacity-0 slide-in-bottom" style={{ animationDelay: '0.1s' }}>
              Precision Paint Pros
           </h1>
-           <p className="text-xl md:text-2xl text-foreground mb-8 max-w-3xl slide-in-bottom" style={{ animationDelay: '0.2s' }}>
+           <p className="text-xl md:text-2xl text-foreground mb-8 max-w-3xl opacity-0 slide-in-bottom" style={{ animationDelay: '0.3s' }}>
             Painting Your Perfect Finish in Monte Vista &amp; Surrounding Areas
           </p>
-           <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 px-10 py-4 rounded-full font-semibold text-lg shadow-lg transform hover:scale-105 transition-transform slide-in-bottom" style={{ animationDelay: '0.4s' }}>
+           <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 px-10 py-4 rounded-full font-semibold text-lg shadow-lg transform hover:scale-105 transition-transform opacity-0 slide-in-bottom" style={{ animationDelay: '0.5s' }}>
             Get a Free Quote
           </Button>
         </div>
       </section>
 
       {/* Promotional Banner Section */}
-        <section
+      <section
         ref={promoRef}
-        className="py-12 bg-secondary rounded-3xl shadow-lg overflow-hidden relative mx-4 md:mx-8 lg:mx-auto lg:container" // Added container and margins
+        data-animation="fade-in"
+        className="py-12 bg-secondary-section rounded-3xl shadow-lg overflow-hidden relative mx-4 md:mx-8 lg:mx-auto lg:container opacity-0" // Added container and margins, start with opacity 0
       >
         <div className="container mx-auto text-center relative z-10 px-4">
            <h2 className="text-3xl font-semibold text-primary mb-4 animate-spray-on-off" style={{ animationDelay: '0s' }}>
@@ -109,15 +112,16 @@ export default function Home() {
       {/* Testimonials Section */}
       <section
         ref={testimonialsRef}
-        className="py-16 bg-background rounded-3xl shadow-lg mx-4 md:mx-8 lg:mx-auto lg:container" // Added container and margins
+        data-animation="fade-in"
+        className="py-16 bg-background rounded-3xl shadow-lg mx-4 md:mx-8 lg:mx-auto lg:container opacity-0" // Added container and margins, start with opacity 0
       >
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-semibold text-primary text-center mb-10">
+          <h2 className="text-3xl font-semibold text-primary text-center mb-10 slide-in-bottom">
             What Our Clients Say
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Testimonial 1 */}
-            <div className="bg-card border border-border rounded-xl shadow-sm p-6 transform hover:scale-105 transition-transform duration-300">
+            <div className="bg-card border border-border rounded-xl shadow-sm p-6 transform hover:scale-105 transition-transform duration-300 opacity-0 zoom-in" style={{ animationDelay: '0.2s' }}>
               <p className="text-card-foreground italic mb-4">
                 "Precision Paint Pros exceeded our expectations. The team was
                 professional, punctual, and delivered exceptional quality. We
@@ -127,7 +131,7 @@ export default function Home() {
                 Sarah Miller</p>
             </div>
             {/* Testimonial 2 */}
-            <div className="bg-card border border-border rounded-xl shadow-sm p-6 transform hover:scale-105 transition-transform duration-300">
+            <div className="bg-card border border-border rounded-xl shadow-sm p-6 transform hover:scale-105 transition-transform duration-300 opacity-0 zoom-in" style={{ animationDelay: '0.4s' }}>
               <p className="text-card-foreground italic mb-4">
                 "From start to finish, the service was top-notch. Our home has
                 never looked better. Thank you, Precision Paint Pros!"
@@ -136,7 +140,7 @@ export default function Home() {
                 Thompson</p>
             </div>
             {/* Testimonial 3 */}
-            <div className="bg-card border border-border rounded-xl shadow-sm p-6 transform hover:scale-105 transition-transform duration-300">
+            <div className="bg-card border border-border rounded-xl shadow-sm p-6 transform hover:scale-105 transition-transform duration-300 opacity-0 zoom-in" style={{ animationDelay: '0.6s' }}>
               <p className="text-card-foreground italic mb-4">
                 "Great attention to detail and excellent customer service. We
                 were very impressed with their commitment to getting the job
@@ -152,16 +156,17 @@ export default function Home() {
       {/* Contact Section */}
       <section
         ref={contactRef}
-        className="py-16 bg-primary-section rounded-3xl shadow-lg mx-4 md:mx-8 lg:mx-auto lg:container mb-16" // Added container and margins
+        data-animation="fade-in"
+        className="py-16 bg-primary-section rounded-3xl shadow-lg mx-4 md:mx-8 lg:mx-auto lg:container mb-16 opacity-0" // Added container and margins, start with opacity 0
       >
         <div className="container mx-auto text-center px-4">
-          <h2 className="text-3xl font-semibold text-primary mb-6">
+          <h2 className="text-3xl font-semibold text-primary mb-6 slide-in-bottom">
             Ready to Transform Your Space?
           </h2>
-          <p className="text-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-foreground mb-8 max-w-2xl mx-auto opacity-0 slide-in-bottom" style={{ animationDelay: '0.2s' }}>
             Contact us today for a personalized quote and let us bring your vision to life with precision and care.
           </p>
-          <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 px-10 py-4 rounded-full font-semibold text-lg shadow-lg transform hover:scale-105 transition-transform">
+          <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 px-10 py-4 rounded-full font-semibold text-lg shadow-lg transform hover:scale-105 transition-transform opacity-0 slide-in-bottom" style={{ animationDelay: '0.4s' }}>
             Request Your Free Estimate
           </Button>
         </div>
