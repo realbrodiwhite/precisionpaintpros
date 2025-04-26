@@ -49,7 +49,7 @@ export function Header() {
 
   return (
     <>
-      <div className="announcement-bar text-white text-center py-2 overflow-hidden whitespace-nowrap text-sm">
+      <div className="announcement-bar text-white text-center py-2 overflow-hidden whitespace-nowrap text-base"> {/* Increased text size */}
         <span className="animate-marquee inline-block font-bold"> {/* Added font-bold */}
           Summer Sale: 20% Off All Exterior Painting Services - Book Now!&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Get a Free Estimate Today!&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Serving Monte Vista & Surrounding Areas
         </span>
