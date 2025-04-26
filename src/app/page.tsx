@@ -60,12 +60,13 @@ export default function Home() {
         {/* Background Image */}
         <Image
           // Using a placeholder relevant to painting/home improvement instead of a specific product
-          src="https://picsum.photos/seed/paintjob/1920/1080"
-          alt="Professional painting equipment"
+          src="https://picsum.photos/seed/gracosprayer/1920/1080"
+          alt="Graco Paint Sprayer"
           layout="fill"
           objectFit="cover"
           quality={80}
           className="absolute inset-0 z-0 opacity-40" // Added opacity
+          priority // Load hero image faster
         />
         {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent z-10"></div>
@@ -85,7 +86,7 @@ export default function Home() {
       </section>
 
       {/* Promotional Banner Section */}
-      <section
+        <section
         ref={promoRef}
         className="py-12 bg-secondary rounded-3xl shadow-lg overflow-hidden relative mx-4 md:mx-8 lg:mx-auto lg:container" // Added container and margins
       >
