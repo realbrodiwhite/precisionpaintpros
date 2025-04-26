@@ -48,8 +48,8 @@ export function Header() {
 
   return (
     <>
-      <div className="announcement-bar text-white text-center py-2 overflow-hidden whitespace-nowrap text-sm font-medium">
-        <span className="animate-marquee inline-block">
+      <div className="announcement-bar text-white text-center py-2 overflow-hidden whitespace-nowrap text-sm">
+        <span className="animate-marquee inline-block font-bold"> {/* Added font-bold */}
           Summer Sale: 20% Off All Exterior Painting Services - Book Now!&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Get a Free Estimate Today!&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Serving Monte Vista & Surrounding Areas
         </span>
       </div>
@@ -123,14 +123,14 @@ export function Header() {
             </Button>
              {isLoggedIn ? (
                <Link href={userRole === "client" ? "/client" : "/employee"} className="header-menu-link">
-                 <Avatar className="h-16 w-16"> {/* Adjusted size */}
+                 <Avatar className="h-[52px] w-[52px]"> {/* Adjusted size */}
                    <AvatarImage src="https://picsum.photos/id/237/80/80" />
                    <AvatarFallback>{userRole === 'client' ? 'CL' : 'EM'}</AvatarFallback>
                  </Avatar>
                </Link>
              ) : (
                <Link href="/dashboard" className="header-menu-link">
-                 <Avatar className="h-16 w-16"> {/* Adjusted size */}
+                 <Avatar className="h-[52px] w-[52px]"> {/* Adjusted size */}
                    <AvatarImage src="https://picsum.photos/id/433/80/80" />
                    <AvatarFallback>AC</AvatarFallback>
                  </Avatar>
@@ -201,7 +201,7 @@ export function Header() {
                <div className="pt-4 border-t border-gray-200 mt-4">
                  {isLoggedIn ? (
                    <Link href={userRole === "client" ? "/client" : "/employee"} className="flex items-center space-x-2 text-black hover:text-primary font-bold" onClick={toggleMobileMenu}>
-                     <Avatar className="h-16 w-16"> {/* Adjusted size */}
+                     <Avatar className="h-[52px] w-[52px]"> {/* Adjusted size */}
                        <AvatarImage src="https://picsum.photos/id/237/80/80" />
                        <AvatarFallback>{userRole === 'client' ? 'CL' : 'EM'}</AvatarFallback>
                      </Avatar>
@@ -209,7 +209,7 @@ export function Header() {
                    </Link>
                  ) : (
                    <Link href="/dashboard" className="flex items-center space-x-2 text-black hover:text-primary font-bold" onClick={toggleMobileMenu}>
-                      <Avatar className="h-16 w-16"> {/* Adjusted size */}
+                      <Avatar className="h-[52px] w-[52px]"> {/* Adjusted size */}
                        <AvatarImage src="https://picsum.photos/id/433/80/80" />
                        <AvatarFallback>AC</AvatarFallback>
                      </Avatar>
