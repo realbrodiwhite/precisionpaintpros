@@ -48,7 +48,7 @@
        <section ref={heroRef} className="relative flex items-center justify-center text-center text-white min-h-[calc(100vh-60px)] overflow-hidden opacity-0 transition-opacity duration-1000"> {/* Adjust min-height calculation if header height changes */}
          {/* Background Image */}
          <Image
-           src="/assets/hero-painter.jpg" // Updated image source
+           src="/assets/hero-painter-new.jpg" // Updated image source
            alt="Professional painter applying paint to a wall"
            layout="fill"
            objectFit="cover"
@@ -138,5 +138,3 @@
      </div>
    );
  }
- 
-    
