@@ -53,11 +53,11 @@
            layout="fill"
            objectFit="cover"
            quality={80}
-           className="absolute inset-0 z-0" // Removed overlay filter
+           className="absolute inset-0 z-0"
            priority // Load hero image faster
          />
          {/* Overlay */}
-         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40 z-10"></div> {/* Adjusted overlay */}
+         <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/50 z-10"></div> {/* Adjusted overlay to 50% opacity */}
 
          {/* Content */}
          <div className="relative z-20 px-4 py-16 slide-in-bottom">
