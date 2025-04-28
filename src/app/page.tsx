@@ -45,7 +45,7 @@
    return (
      <div className="flex flex-col min-h-screen">
        {/* Hero Section */}
-       <section ref={heroRef} className="relative flex items-center justify-center text-center text-white min-h-[calc(100vh-60px)] overflow-hidden opacity-0 transition-opacity duration-1000"> {/* Adjust min-height calculation if header height changes */}
+       <section ref={heroRef} className="relative flex items-center justify-center text-center text-white min-h-[calc(100vh-100px)] overflow-hidden opacity-0 transition-opacity duration-1000"> {/* Adjust min-height calculation if header height changes */}
          {/* Background Image */}
          <Image
            src="/assets/hero-painter-new.jpg" // Updated image source
@@ -138,3 +138,4 @@
      </div>
    );
  }
+
