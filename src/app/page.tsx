@@ -48,12 +48,12 @@
        <section ref={heroRef} className="relative flex items-center justify-center text-center text-white min-h-[calc(100vh-60px)] overflow-hidden opacity-0 transition-opacity duration-1000"> {/* Adjust min-height calculation if header height changes */}
          {/* Background Image */}
          <Image
-           src="/assets/Graco_x17.png"
-           alt="Precision Paint Pros Paint Sprayer"
+           src="/assets/hero-painter.jpg" // Updated image source
+           alt="Professional painter applying paint to a wall"
            layout="fill"
            objectFit="cover"
            quality={80}
-           className="absolute inset-0 z-0" // Remove opacity filter
+           className="absolute inset-0 z-0" // Removed overlay filter
            priority // Load hero image faster
          />
          {/* Overlay */}
