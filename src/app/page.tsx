@@ -48,7 +48,7 @@
        <section ref={heroRef} className="relative flex items-center justify-center text-center text-white min-h-[calc(100vh-100px)] overflow-hidden opacity-0 transition-opacity duration-1000"> {/* Adjust min-height calculation if header height changes */}
          {/* Background Image */}
          <Image
-           src="/assets/PrecisionPaintProsHeroImage.jpg" // Updated image source from previous request
+           src="/assets/PrecisionPaintProsHeroImage.jpg" // Corrected path to use the image in public/assets
            alt="Professional painter applying paint to a wall"
            layout="fill"
            objectFit="cover"
