@@ -1,11 +1,11 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
 
-export default function CustomerTestimonialsSection() {
+export default function Testimonials() {
   return (
-    <section className="py-16 bg-secondary-section rounded-3xl shadow-lg mx-4 md:mx-8 lg:mx-auto lg:container mb-12 overflow-hidden">
+    <section className="py-16 fade-in bg-secondary-section rounded-3xl shadow-lg mx-4 md:mx-8 lg:mx-auto lg:container mb-12 overflow-hidden">
       <div className="container mx-auto px-4">
+
         <h2 className="text-3xl font-semibold text-primary text-center mb-10 slide-in-bottom">
           What Our Clients Say
         </h2>

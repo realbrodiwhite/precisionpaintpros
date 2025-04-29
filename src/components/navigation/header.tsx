@@ -62,8 +62,8 @@ export function Header() {
               <Image
                 src={PrecisionPaintProsLogo}
                 alt="Precision Paint Pros Logo"
-                layout="fill"
-                objectFit="contain"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 priority
               />
               <span className="sr-only">Precision Paint Pros</span> {/* Keep for SEO */}

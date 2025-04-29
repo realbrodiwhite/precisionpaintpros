@@ -1,26 +1,45 @@
-# **App Name**: Precision Paint Pros Hub
+# **App Name**: Module Resolver
 
 ## Core Features:
 
-- Company Website: Informational pages about Precision Paint Pros, blogs, online self estimate tool, SEO focused design, blogs, about them, their services, contact info (1345 6th Avenue, Monte Vista Colorado), and a project portfolio managed in the Employee Panel, reviews, company stats etc.
-- SEO Blogs: 3 Blog categories written with SEO baked in having with articles about painting tips, color trends, and company news, each in its own Blog Category.
-- Client Panel: Client panel for project updates, communication with company, request estimates, viewing invoices, and making payment.
-- Employee Panel: Employee panel used to update projects, send invoices, communicate with clients, and send invoices for payments.
+- Module Import Validation: Detect incorrect or missing module imports in Next.js projects.
+- Fix Suggestions: Suggest fixes for module import errors, like incorrect paths or missing files.
+- In-app Error Display: Display errors and suggestions within the Next.js development environment.
 
 ## Style Guidelines:
 
-- Primary color: Blue (##5271ff) to convey trust and reliability.
-- Secondary color: White for backgrounds and content areas.
-- Accent: Red (#ff0000) for call-to-action buttons and highlights.
-- Clean and readable sans-serif fonts for headings and body text.
-- Use simple, professional icons related to painting and home improvement.
-- Clean and organized layout with clear sections for easy navigation.
-- Designed for Mobile first as well as Desktop expereinces
-- Responsive for all screen sizes and orietations
-- Fully Accessible to all customers
-- Modern Component Based Architecture
-- Robust and SEO focused Meta Data and other data
+- Primary color: Dark blue (#1A237E) for seriousness.
+- Secondary colors: Light grey (#EEEEEE) and white (#FFFFFF).
+- Accent: Yellow (#FFCA28) for highlighting issues.
+- Clear, structured layout with error messages.
+- Use clear, recognizable icons to represent error types.
+- Use less opacity in the Hero, so that the image is easier to see
 
 ## Original User Request:
-a website for Precision Paint Pros, based in Monte Vista Colorado 1345 6th Avenue. Include the website, a matching blog for SEO, as well as matching user panels for clients and employees also.
+I see this error with the app, reported by NextJS, please fix it. The error is reported as HTML but presented visually to the user).
+
+A > before the line number in the error source usually indicates the line of interest: 
+
+> Runtime Error: Error: ./src/components/home/hero.tsx:5:1
+> Module not found: Can't resolve 'src/assets/PrecisionPaintPros-HomePageHeroImage.jpg'
+>   3 | import { Button } from '@/components/ui/button';
+>   4 | import Image from 'next/image'
+> > 5 | import heroImage from 'src/assets/PrecisionPaintPros-HomePageHeroImage.jpg';
+>     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>   6 |
+>   7 | export default function Hero () {
+>   8 |
+>
+>
+>
+> https://nextjs.org/docs/messages/module-not-found
+>
+> . Error source: Call Stack
+> 9
+>
+> Show 7 ignore-listed frame(s)
+> <unknown>
+> error: ./src/components/home/hero.tsx (5:1)
+> <unknown> (Error:
+> ./src/components/home/hero.tsx (5:1)
   
