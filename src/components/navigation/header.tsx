@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { config } from "@/config";
 import Link from "next/link";
 import { useAuth } from "@/hooks/use-auth";
 import Image from "next/image";
@@ -16,38 +17,16 @@ import {
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-import PrecisionPaintProsLogo from "@/assets/PrecisionPaintProsLogo.png";
-
 export function Header() {
   const { isLoggedIn, userRole } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
-  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const { navLinks, serviceLinks, moreLinks } = config.navigation
 
-  // Reordered navLinks as requested
-  const navLinks = [
-    { href: "/blog/painting-tips", label: "Painting Tips" },
-    { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" }, // Keeping contact for completeness, can be moved to 'More' if needed
-  ];
-
-  const serviceLinks = [
-    { href: "/services", label: "All Services" },
-    { href: "/services/interior-painting", label: "Interior Painting" },
-    { href: "/services/exterior-painting", label: "Exterior Painting" },
-    { href: "/services/commercial-painting", label: "Commercial Painting" },
-    { href: "/services/residential-painting", label: "Residential Painting" },
-    { href: "/services/color-consultation", label: "Color Consultation" },
-  ];
-
-  const moreLinks = [
-    { href: "/faq", label: "FAQ" },
-    { href: "/portfolio", label: "Portfolio" },
-    { href: "/careers", label: "Careers" },
-  ]
+const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   return (
-    <>
+<>
       <div className="announcement-bar text-white text-center py-2 overflow-hidden whitespace-nowrap text-base">
         <span className="animate-marquee inline-block font-bold">
           Summer Sale: 20% Off All Exterior Painting Services - Book Now!&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Get a Free Estimate Today!&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Serving Monte Vista & Surrounding Areas
@@ -60,7 +39,7 @@ export function Header() {
             {/* Adjusted height by ~15% */}
             <div className="relative w-[110px] h-[31px] md:w-[143px] md:h-[41px] lg:w-[176px] lg:h-[50px]">
               <Image
-                src={PrecisionPaintProsLogo}
+                src={config.imagePaths.logo}
                 alt="Precision Paint Pros Logo"
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

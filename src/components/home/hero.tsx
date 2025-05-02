@@ -3,7 +3,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
-import heroImage from '@/assets/PrecisionPaintPros-HomePageHeroImage.jpg';
+import heroImage from '@/assets/PrecisionPaintPros-HomePageHeroImage.webp';
 
 export default function Hero() {
     
@@ -14,10 +14,10 @@ export default function Hero() {
                 alt="Professional painter applying paint to a wall"
                 fill
                 className="absolute inset-0 object-cover z-0"
-                quality={80}
-                priority
-                placeholder="blur" 
-                sizes="100vw"
+                priority={true}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                quality={80} 
+
             />
             <div className="absolute inset-0 bg-white/80 z-10"></div>
             <div className="relative z-20 px-4 py-16 slide-in-bottom">
