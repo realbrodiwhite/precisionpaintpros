@@ -9,14 +9,6 @@ import ExteriorPainting from '@/assets/ExteriorPainting-PrecisionPaintPros.webp'
 import CommercialPainting from '@/assets/CommercialPainting-PrecisionPaintPros.webp';
 import ResidentialPainting from '@/assets/ResidentialPainting-PrecisionPaintPros.webp';
 import ColorConsultation from '@/assets/ColorConsultation-PrecisionPaintPlus.webp';
-import CurbFaceAddressPainting from "@/assets/CurbFaceAddressPainting-PrecisionPaintPros.webp";
-import ParkingLotLinePainting from "@/assets/ParkingLotLinePainting-PrecisionPaintPros.webp";
-import FencePainting from "@/assets/FencePainting-PrecisionPaintPros.webp";
-import TrimRefinishing from "@/assets/TrimRefinishing-PrecisionPaintPros.webp";
-import CabinetRefinishing from "@/assets/CabinetRefinishing-PrecisionPaintPros.webp";
-import DrivewayPainting from "@/assets/DrivewayPainting-PrecisionPaintPros.webp";
-import TrafficPainting from "@/assets/TrafficPainting-PrecisionPaintPros.webp";
-import ConcretePainting from "@/assets/ConcretePainting-PrecisionPaintPros.webp";
 
 const servicesData = [
   {
@@ -40,51 +32,13 @@ const servicesData = [
     image: ResidentialPainting,
   },
   {
-    name: 'Curb Face Address Painting',
-    description: 'Enhance your curb appeal with our custom address painting services.',
-    image: CurbFaceAddressPainting,
-  },
-  {
-    name: 'Parking Lot Line Painting',
-    description: 'Ensure safety and organization with our professional parking lot line striping services.',
-    image: ParkingLotLinePainting,
-  },
-  {
     name: 'Color Consultation',
     description: 'Get expert advice on choosing the perfect colors for your project.',
     image: ColorConsultation,
    },
-  {
-    name: 'Fence Painting',
-    description: 'Protect and enhance your fence with our quality painting services.',
-    image: FencePainting,
-  },
-  {
-    name: 'Trim Refinishing',
-    description: 'Revitalize your home\'s trim with our expert refinishing services.',
-    image: TrimRefinishing,
-  },
-  {
-    name: 'Cabinet Refinishing',
-    description: 'Update your kitchen or bathroom with our cabinet refinishing services.',
-    image: CabinetRefinishing,
-  },
-  {
-    name: 'Driveway Painting',
-    description: 'Improve the appearance and durability of your driveway with our painting services.',
-    image: DrivewayPainting
-  },
-  {
-    name: 'Traffic Painting',
-    description: 'Get expert advice on choosing the perfect colors for your project.',
-    image: TrafficPainting,
-  },
-  {
-    name: 'Concrete Painting',
-    description: 'Beautify and protect your concrete surfaces with our painting services.',
-    image: ConcretePainting,
-  },
+
 ];
+
 
 const Services = () => {
 
@@ -110,7 +64,7 @@ const Services = () => {
                   alt={service.name}
                   width={600}
                   height={400}
-                  className="rounded-t-xl object-cover h-48 w-full"
+                  className="rounded-t-xl object-cover object-center h-48 w-full"
                   loading="lazy" 
                 />
                 <div className="p-6">

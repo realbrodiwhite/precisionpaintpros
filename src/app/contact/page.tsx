@@ -1,60 +1,79 @@
-import React from 'react';  
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+
+'use client';
+import React, { useState } from 'react';
 import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
+import { useForm, useFormState } from 'react-hook-form';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { sendEmail } from '@/app/contact/actions';
 
+export default function Contact() {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    control,
+    formState: { errors },
+  } = useForm();
 
-// Contact Page Component
-export default function Page() {
-  // Define the position for the map center and marker
-  const position = [37.7749, -122.4194];
+  const { isSubmitting } = useFormState({ control });
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onSubmit = async (data: any): Promise<void> => {
+    try {
+      await sendEmail(data.name, data.email, data.message);
+      reset();
+    } catch (error) {
+      console.error('Form submission error:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
-    <div className="container mx-auto p-4">
-      {/* Contact Us Heading */}
-      <h1 className="text-3xl font-bold mb-6">Contact Us</h1>
-      {/* Contact Form */}
-      <form className="space-y-4">
-        {/* Name Input */}
-        <div>
-          <label htmlFor="name" className="block mb-2">Name<span className='text-red-500'>*</span></label>
-          <input type="text" id="name" className="border border-gray-300 px-4 py-2 w-full" required placeholder='Enter your name'/>
-        </div>
-        {/* Email Input */}
-        <div>
-          <label htmlFor="email" className="block mb-2">Email<span className='text-red-500'>*</span></label>
-          <input type="email" id="email" className="border border-gray-300 px-4 py-2 w-full" required placeholder='Enter your email'/>
-        </div>
-        {/* Phone Input */}
-        <div>
-          <label htmlFor="phone" className="block mb-2">Phone</label>
-          <input type="text" id="phone" className="border border-gray-300 px-4 py-2 w-full" pattern="[0-9-()]+" placeholder='Enter your phone number'/>
-        </div>
-        {/* Message Input */}
-        <div>
-          <label htmlFor="message" className="block mb-2">Message<span className='text-red-500'>*</span></label>
-          <textarea id="message" className="border border-gray-300 px-4 py-2 w-full h-32" required/>
-        </div>
-        <div>
-          <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Submit</button>
-        </div>
-      </form>
-      {/* Map Section */}
-      <div className='mt-8'>
-            {/* Map Container */}
-            <MapContainer center={position} zoom={13} style={{ height: '400px', width: '100%' }}>
-                {/* Tile Layer */}
-                <TileLayer
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-                />
-                {/* Marker */}
-                <Marker position={position}>
-                  <Popup>
-                    A pretty CSS3 popup. <br /> Easily customizable.
-                  </Popup>
-                </Marker>
-            </MapContainer>
-        </div>
+    <section className="py-16 bg-primary-section rounded-3xl shadow-lg mx-4 md:mx-8 lg:mx-auto lg:container mb-12 overflow-hidden fade-in">
+      <div className="container mx-auto px-4 text-center">
+        <h2 className="text-3xl font-semibold text-primary mb-6">Contact Us</h2>
+        <form action={handleSubmit(onSubmit)} className="space-y-4">
+          <div>
+            <Label htmlFor="name">Name <span className="text-red-500">*</span></Label>
+            <Input
+              type="text"
+              id="name"
+              placeholder="Enter your name"
+              {...register('name', { required: true })}
+              className="border border-gray-300 px-4 py-2 w-full"
+            />
+            {errors.name && <span className="text-red-500">This field is required</span>}
+          </div>
+          <div>
+            <Label htmlFor="email">Email <span className="text-red-500">*</span></Label>
+            <Input
+              type="email"
+              id="email"
+              placeholder="Enter your email"
+              {...register('email', { required: true })}
+              className="border border-gray-300 px-4 py-2 w-full"
+            />
+            {errors.email && <span className="text-red-500">This field is required</span>}
+          </div>
+          <div>
+            <Label htmlFor="message">Message <span className="text-red-500">*</span></Label>
+            <Textarea
+              id="message"
+              placeholder="Enter your message"
+              {...register('message', { required: true })}
+              className="border border-gray-300 px-4 py-2 w-full h-32"
+            />
+            {errors.message && <span className="text-red-500">This field is required</span>}
+          </div>
+          <Button type="submit" disabled={isSubmitting}>
+            {isLoading ? 'Submitting...' : 'Submit'}
+          </Button>
+        </form>
       </div>
+    </section>
   );
 }

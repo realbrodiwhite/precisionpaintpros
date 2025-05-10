@@ -8,18 +8,24 @@ Precision Paint Pros is a professional painting service based in Monte Vista, Co
 
 ## Tech Stack
 
-- **Framework:** Next.js 13 with App Router  
-- **Language:** TypeScript  
-- **Styling:** Tailwind CSS  
-- **Package Manager:** npm  
-- **Deployment:** Configured for platforms like Vercel or Firebase Hosting  
+- **Framework:** Next.js 14 with App Router ✨
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS, Radix UI, Lucide React
+- **State Management/Data Fetching:** TanStack Query (formerly React Query)
+- **AI Integration:** Genkit with Google AI (Gemini model) 🤖
+- **Backend (Potential):** Firebase (for authentication) 🔥
+- **Forms:** React Hook Form with Zod for validation
+- **Utilities:** clsx, tailwind-merge, date-fns
+- **Charting:** Recharts
+- **Testing:** Jest and React Testing Library ✅
+- **Package Manager:** npm
+- **Deployment:** Optimized for Vercel, Netlify, Firebase Hosting
 
 ---
 
 ## Project Structure
 
 The project is organized as follows:
-
 ```
 precisionpaintpros/
 ├── .github/
