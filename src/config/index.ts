@@ -1,6 +1,14 @@
 export const config = {
   navigation: {
-    navLinks: [],
+    navLinks: [
+      { href: "/", label: "Home", hideBelow: 'always' },
+      { href: "/services", label: "Services", hideBelow: 'always' }, // Assuming a main services page or category
+      { href: "/projects", label: "Projects", hideBelow: 'always' }, // Assuming a projects page
+      { href: "/blog/painting-tips", label: "Painting Tips", hideBelow: 'sm' },
+      { href: "/testimonials", label: "Testimonials", hideBelow: 'sm' },
+      { href: "/about-us", label: "About Us", hideBelow: 'md' },
+      { href: "/contact", label: "Contact", hideBelow: 'lg' },
+    ],
     serviceLinks: [
       { href: "/services/interior-painting", label: "Interior Painting" },
       { href: "/services/exterior-painting", label: "Exterior Painting" },

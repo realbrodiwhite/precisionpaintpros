@@ -1,6 +1,4 @@
-tsx
 "use client";
-
 export default function Faq() {
   return (
     <div className="container mx-auto py-12">

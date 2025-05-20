@@ -104,24 +104,34 @@ const FormLabel = React.forwardRef<
 FormLabel.displayName = "FormLabel"
 
 const FormControl = React.forwardRef<
-  React.ElementRef<typeof Slot>,
-  React.ComponentPropsWithoutRef<typeof Slot>
->(({ ...props }, ref) => {
+  React.ElementRef<"div">,
+  React.ComponentPropsWithoutRef<HTMLDivElement>
+>((
+  { children, ...props },
+  ref
+) => {
   const { error, formItemId, formDescriptionId, formMessageId } = useFormField()
 
-  return (
-    <Slot
-      ref={ref}
-      id={formItemId}
-      aria-describedby={
-        !error
-          ? `${formDescriptionId}`
-          : `${formDescriptionId} ${formMessageId}`
-      }
-      aria-invalid={!!error}
-      {...props}
-    />
-  )
+  // Ensure there is only one child before rendering
+  if (React.Children.count(children) > 1) {
+    console.error(
+      "FormControl expected a single child, but received multiple."
+    )
+    return null
+  }
+
+  const child = React.Children.only(children) // Get the single child
+
+  // Render the child directly, merging props and ref
+  return React.cloneElement(child as React.ReactElement, {
+ ref: ref,
+ id: formItemId,
+ "aria-describedby": !error
+ ? `${formDescriptionId}`
+ : `${formDescriptionId} ${formMessageId}`,
+ "aria-invalid": !!error,
+ ...props,
+  });
 })
 FormControl.displayName = "FormControl"
 

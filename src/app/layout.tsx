@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: 'Precision Paint Pros Website & Client Dashboard',
     images: [
       {
-        url: '../assets/PrecisionPaintPros.png', //
+        url: '/PrecisionPaintPros.png', //
         width: 1200,
         height: 630,
         alt: 'Precision Paint Pros of Monte Vista Colorado',
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     description: 'Precision Paint Pros, Painting your perfect finish | Monte Vista, Alamosa, Del Norte, South Fork and more!',
     images: [
  {
-        url: '../assets/PrecisionPaintPros.png', //
+        url: '/PrecisionPaintPros.png', //
         width: 1200,
         height: 630,
         alt: 'Precision Paint Pros | Painting your perfect finish',

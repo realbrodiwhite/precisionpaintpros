@@ -1,9 +1,9 @@
-tsx
-export default function ColorConsultationPage() {
+heres the image paths for the services with matching export default function ColorConsultationPage() {
   return (
     <div>
-      <h1>Color Consultation Services</h1>
+      <h1>Color Consultation Services</h1>{/* Main image for the service */}
       <p>
+        <img src="/public/assets/ColorConsultation-PrecisionPaintPlus.webp" alt="Color Consultation" />
         Unlock the potential of your space with our expert color consultation
         services. Choosing the right colors can transform a room, enhancing its
         mood and functionality. Our professional consultants work with you to

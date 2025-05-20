@@ -36,7 +36,7 @@ export default function Contact() {
     <section className="py-16 bg-primary-section rounded-3xl shadow-lg mx-4 md:mx-8 lg:mx-auto lg:container mb-12 overflow-hidden fade-in">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl font-semibold text-primary mb-6">Contact Us</h2>
-        <form action={handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
             <Label htmlFor="name">Name <span className="text-red-500">*</span></Label>
             <Input

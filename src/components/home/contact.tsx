@@ -52,41 +52,46 @@ export default function Contact() {
   }
 
   return (
-    <section className="py-16 bg-primary-section rounded-3xl shadow-lg mx-4 md:mx-8 lg:mx-auto lg:container mb-12 overflow-hidden fade-in">
+    <section className="py-16 bg-primary-section rounded-3xl shadow-lg mx-4 md:mx-8 lg:mx-auto lg:container mb-12 overflow-hidden fade-in" id="contact">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl font-semibold text-primary mb-6">Contact Us</h2>
         <Form {...form}>
-          <form
-            action={form.handleSubmit(onSubmit)}
-            className="space-y-4"
-          >
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
             <FormField
               control={form.control}
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder="John Doe" {...field} />
-                  </FormControl>
+                  <FormLabel htmlFor='name'>Name</FormLabel>
+                  <FormControl><Input placeholder="John Doe" {...field} /></FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control} 
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel htmlFor='email'>Email</FormLabel>
+                  <FormControl><Input placeholder="johndoe@example.com" {...field} /></FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
             <FormField
               control={form.control}
-              name="email"
+              name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel htmlFor='message'>Message</FormLabel>
                   <FormControl>
-                    <Input placeholder="johndoe@example.com" {...field} />
+                    <Textarea placeholder="Enter your message here." {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <FormField control={form.control} name="message" render={({ field }) => <FormItem> <FormLabel>Message</FormLabel> <FormControl> <Textarea placeholder="Enter your message here." {...field} /> </FormControl> <FormMessage /></FormItem>} />
             <Button type="submit" size="lg" className="w-full" disabled={isLoading}>{isLoading ? 'Submitting...' : 'Submit'}</Button>
           </form>
         </Form>

@@ -2,6 +2,7 @@
 type NavLink = {
   href: string;
   label: string;
+  hideBelow?: string; // Added hideBelow property
 };
 
 type Service = {
@@ -52,7 +53,7 @@ export const config = {
     ],
   } as Navigation,
     imagePaths: {
-        logo: "@/assets/PrecisionPaintProsLogo.webp",
+        logo: "/assets/PrecisionPaintProsLogo.webp",
     } as ImagePaths,
     testimonialType: {} as Testimonial,
     

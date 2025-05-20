@@ -4,39 +4,34 @@
 import Image from 'next/image';
 import React from 'react';
 import { cn } from '@/lib/utils';
-import InteriorPainting from '@/assets/InteriorPainting-PrecisionPaintPros.webp';
-import ExteriorPainting from '@/assets/ExteriorPainting-PrecisionPaintPros.webp';
-import CommercialPainting from '@/assets/CommercialPainting-PrecisionPaintPros.webp';
-import ResidentialPainting from '@/assets/ResidentialPainting-PrecisionPaintPros.webp';
-import ColorConsultation from '@/assets/ColorConsultation-PrecisionPaintPlus.webp';
 
 const servicesData = [
   {
     name: 'Interior Painting',
     description: 'Transform your interiors with our expert painting services.',
-    image: InteriorPainting,
+    image: '/assets/InteriorPainting-PrecisionPaintPros.webp',
   },
-  {
+  {  
     name: 'Exterior Painting',
     description: 'Protect and beautify your property with our exterior painting solutions.',
-    image: ExteriorPainting,
+    image: '/assets/ExteriorPainting-PrecisionPaintPros.webp',
   },
-  {
+  {  
     name: 'Commercial Painting',
     description: 'Enhance your business space with our professional commercial painting services.',
-    image: CommercialPainting,
+    image: '/assets/CommercialPainting-PrecisionPaintPros.webp',
   },
-  {
+  {  
     name: 'Residential Painting',
     description: 'Make your house a home with our quality residential painting services.',
-    image: ResidentialPainting,
+    image: '/assets/ResidentialPainting-PrecisionPaintPros.webp'
   },
-  {
+  {  
     name: 'Color Consultation',
     description: 'Get expert advice on choosing the perfect colors for your project.',
-    image: ColorConsultation,
-   },
-
+    image: '/assets/ColorConsultation-PrecisionPaintPlus.webp'
+  },
+  
 ];
 
 

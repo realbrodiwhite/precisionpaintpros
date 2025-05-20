@@ -1,10 +1,12 @@
-tsx
-
 export default function ExteriorPaintingPage() {
   return (
     <div className="container mx-auto py-12">
       <header className="text-center mb-8">
         <h1 className="text-4xl font-bold">Exterior Painting Services</h1>
+        {/* Image related to Exterior Painting */}
+        <div className="flex justify-center my-8">
+          <img src="/assets/ExteriorPainting-PrecisionPaintPros.webp" alt="Exterior Painting" className="max-w-full h-auto rounded-lg shadow-lg"/>
+        </div>
       </header>
 
       <section className="mb-8">

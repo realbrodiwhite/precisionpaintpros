@@ -1,4 +1,3 @@
-typescript jsx
 export default function DrivewayPainting() {
   return (
     <div>
