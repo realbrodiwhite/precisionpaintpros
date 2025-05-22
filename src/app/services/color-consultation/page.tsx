@@ -1,4 +1,4 @@
-heres the image paths for the services with matching export default function ColorConsultationPage() {
+export default function ColorConsultationPage() {
   return (
     <div>
       <h1>Color Consultation Services</h1>{/* Main image for the service */}
