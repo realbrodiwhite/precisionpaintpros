@@ -63,7 +63,7 @@ export default function Contact() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel htmlFor='name'>Name</FormLabel>
-                  <FormControl><Input placeholder="John Doe" {...field} /></FormControl>
+                    <Input placeholder="John Doe" {...field} />
                   <FormMessage />
                 </FormItem>
               )}
@@ -74,7 +74,7 @@ export default function Contact() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel htmlFor='email'>Email</FormLabel>
-                  <FormControl><Input placeholder="johndoe@example.com" {...field} /></FormControl>
+                    <Input placeholder="johndoe@example.com" {...field} />
                   <FormMessage />
                 </FormItem>
               )}
@@ -85,9 +85,7 @@ export default function Contact() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel htmlFor='message'>Message</FormLabel>
-                  <FormControl>
                     <Textarea placeholder="Enter your message here." {...field} />
-                  </FormControl>
                   <FormMessage />
                 </FormItem>
               )}

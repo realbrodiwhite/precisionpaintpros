@@ -3,6 +3,7 @@
 
 import Image from 'next/image';
 import React from 'react';
+import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
 const servicesData = [
@@ -31,6 +32,11 @@ const servicesData = [
     description: 'Get expert advice on choosing the perfect colors for your project.',
     image: '/assets/ColorConsultation-PrecisionPaintPlus.webp'
   },
+ {  
+    name: 'Parking Lot Line Painting',
+    description: 'Expert line painting for parking lots and other surfaces.',
+    image: '/assets/LinePainting-PrecisionPaintPros.webp'
+  }
   
 ];
 
@@ -42,33 +48,36 @@ const Services = () => {
         {/* Added container and margins */}
         <div className="container mx-auto px-4"> 
           <h2 className="text-3xl font-semibold text-primary text-center mb-10 slide-in-bottom">
-            Our Services
+            Pro Painting Services
+
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {servicesData.map((service, index) => (
-              <div
+              <Link
                 key={index}
-                className={cn("bg-card border border-border rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2",
+                href={`/services/${service.name.toLowerCase().replace(/\s+/g, '-')}`}
+              >
+                <div
+                  className={cn("bg-card border border-border rounded-xl shadow-sm hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-2",
                   `zoom-in-${index * 100}`
                 )}
-              >
-
-
-                <Image
-                  src={service.image}
-                  alt={service.name}
-                  width={600}
-                  height={400}
-                  className="rounded-t-xl object-cover object-center h-48 w-full"
-                  loading="lazy" 
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-primary mb-2">
-                    {service.name}
-                  </h3>
-                  <p className="text-foreground">{service.description}</p>
+                >
+                  <Image
+                    src={service.image}
+                    alt={service.name}
+                    width={600}
+                    height={400}
+                    className="rounded-t-xl object-cover object-center h-48 w-full"
+                    loading="lazy" 
+                  />
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold text-primary mb-2">
+                      {service.name}
+                    </h3>
+                    <p className="text-foreground">{service.description}</p>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -77,3 +86,4 @@ const Services = () => {
 };
 
 export default Services
+

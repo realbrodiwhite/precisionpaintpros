@@ -1,4 +1,4 @@
-# 🎨 Precision Paint Pros Landing Page 👨‍🎨
+ . # 🎨 Precision Paint Pros Landing Page 👨‍🎨
 
 This is a modern and dynamic landing page for **"Precision Paint Pros"**, a top-notch painting company. 🏡🖌️ It's designed to showcase the company's wide array of services, display glowing customer testimonials, and provide an intuitive interface for potential clients to easily request estimates and learn more about what makes Precision Paint Pros stand out.
 
@@ -7,6 +7,14 @@ This application also harnesses the power of AI through **Genkit** to enhance us
 Dive deeper into the application's architecture, functionality, and the exciting ways we're using AI in our [application documentation](docs/app-documentation.md). 📖
 
 ## Tech Stack
+
+This project is built using a modern and robust tech stack, designed for performance, maintainability, and scalability:
+
+*   **Next.js:** ⚡ A React framework for server-side rendering, static site generation, and more.
+*   **TypeScript:** 🖋️ A typed superset of JavaScript that compiles to plain JavaScript.
+*   **Tailwind CSS:** 🎨 A utility-first CSS framework for rapidly building custom designs.
+*   **Radix UI:** ♿ A collection of accessible, unstyled UI components.
+*   **TanStack Query:** 📊 Powerful asynchronous state management for React.
 This project is a modern, professional landing page for "Precision Paint Pros," built using cutting edge technologies. 🛠️ It showcases the company's services and offers a user-friendly interface.
 
 *   **Next.js:** ⚡ For server-side rendering, routing, and performance optimizations.
@@ -17,6 +25,11 @@ This project is a modern, professional landing page for "Precision Paint Pros," 
 *   **Genkit:** 🤖 For AI features.
 *   **Jest and React Testing Library:** ✅ For comprehensive testing.
 *   **TypeScript:** 🖋️ For type safety and a robust development experience.
+
+## Project Structure
+
+The project follows a standard Next.js application structure with some additional directories for documentation, hosting, and AI-related files.
+
 
 ## Prerequisites
 

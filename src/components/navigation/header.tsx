@@ -45,7 +45,7 @@ export function Header() {
           Summer Sale: 20% Off All Exterior Painting Services - Book Now!&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Get a Free Estimate Today!&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Serving Monte Vista & Surrounding Areas
         </span>
       </div>
-      <header className={cn("bg-white py-2 shadow-md sticky top-0 z-50")}>
+      <header className={cn("py-2 shadow-md sticky top-0 z-50 bg-white")}>
         <div className="container mx-auto flex items-center justify-between px-6" style={{ gap: 'calc(4px / 16)' }}>
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0">

@@ -1,4 +1,3 @@
-tsx
 const TrafficPainting = () => {
   return (
     <div>

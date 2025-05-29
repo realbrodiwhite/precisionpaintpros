@@ -20,7 +20,7 @@ type Navigation = {
     moreLinks: NavLink[];
 }
 
-type Testimonial = {
+export type Testimonial = {
   author: string;
   text: string;
 }

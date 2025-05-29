@@ -17,10 +17,10 @@ import { Label } from "@/components/ui/label"
 
 const Form = FormProvider
 
-type FormFieldContextValue<
+interface FormFieldContextValue<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
-> = {
+> {
   name: TName
 }
 
@@ -47,9 +47,11 @@ const useFormField = () => {
   const { getFieldState, formState } = useFormContext()
 
   const fieldState = getFieldState(fieldContext.name, formState)
-
+  if (!itemContext) {
+ throw new Error("useFormField should be used within <FormItem>")
+  }
   if (!fieldContext) {
-    throw new Error("useFormField should be used within <FormField>")
+ throw new Error("useFormField should be used within <FormField>")
   }
 
   const { id } = itemContext
@@ -64,7 +66,7 @@ const useFormField = () => {
   }
 }
 
-type FormItemContextValue = {
+interface FormItemContextValue {
   id: string
 }
 
@@ -104,36 +106,35 @@ const FormLabel = React.forwardRef<
 FormLabel.displayName = "FormLabel"
 
 const FormControl = React.forwardRef<
-  React.ElementRef<"div">,
-  React.ComponentPropsWithoutRef<HTMLDivElement>
+  React.ElementRef<typeof Slot>,
+  React.ComponentPropsWithoutRef<typeof Slot>
 >((
   { children, ...props },
   ref
 ) => {
   const { error, formItemId, formDescriptionId, formMessageId } = useFormField()
-
   // Ensure there is only one child before rendering
   if (React.Children.count(children) > 1) {
     console.error(
       "FormControl expected a single child, but received multiple."
     )
-    return null
+ return null
   }
-
-  const child = React.Children.only(children) // Get the single child
-
-  // Render the child directly, merging props and ref
-  return React.cloneElement(child as React.ReactElement, {
- ref: ref,
- id: formItemId,
- "aria-describedby": !error
- ? `${formDescriptionId}`
- : `${formDescriptionId} ${formMessageId}`,
- "aria-invalid": !!error,
- ...props,
-  });
+  
+ return (
+    <Slot
+      ref={ref}
+      id={formItemId}
+      aria-describedby={
+        !formMessageId
+          ? `${formDescriptionId}`
+          : `${formDescriptionId} ${formMessageId}`
+      }
+      aria-invalid={!!error}
+      {...props}
+    >{children}</Slot>);
 })
-FormControl.displayName = "FormControl"
+FormControl.displayName = 'FormControl'
 
 const FormDescription = React.forwardRef<
   HTMLParagraphElement,
@@ -160,7 +161,7 @@ const FormMessage = React.forwardRef<
   const body = error ? String(error?.message ?? "") : children
 
   if (!body) {
-    return null
+ return null
   }
 
   return (
