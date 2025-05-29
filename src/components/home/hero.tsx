@@ -7,7 +7,7 @@ import Image from 'next/image';
 export default function Hero() {
     
     return (
-        <section className="relative flex items-center justify-center text-center text-white min-h-[calc(100vh-100px)] overflow-hidden transition-opacity duration-1000 fade-in">
+        <section className="relative flex items-center justify-center text-center text-white flex-grow overflow-hidden transition-opacity duration-1000 fade-in">
             <Image
                 src="/assets/PrecisionPaintPros-HomePageHeroImage.webp"
                 alt="Professional painter applying paint to a wall"
